@@ -3,7 +3,6 @@
 class Client_model extends CI_Model
 {
     private $_table = "tb_client";
-
     public $id_client;
     public $nama;
     public $image = "default.jpg";
@@ -84,9 +83,9 @@ class Client_model extends CI_Model
     // }
     private function _uploadImage()
     {
-        $config['upload_path']          = './uploads/team_img/';
+        $config['upload_path']          = './uploads/client_img/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->id_anggota;
+        $config['file_name']            = $this->id_client;
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
         // $config['max_width']            = 1024;
@@ -98,13 +97,13 @@ class Client_model extends CI_Model
             $gbr = $this->upload->data();
                 //Compress Image
                 $config['image_library']='gd2';
-                $config['source_image']='./uploads/team_img/'.$gbr['file_name'];
+                $config['source_image']='./uploads/client_img/'.$gbr['file_name'];
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '75%';
                 $config['width']= 600;
                 $config['height']= 480;
-                $config['new_image']= './uploads/team_img/thumbs/'.$gbr['file_name'];
+                $config['new_image']= './uploads/client_img/thumbs/'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
  
@@ -122,6 +121,7 @@ class Client_model extends CI_Model
         if ($client->image != "default.jpg") {
             $filename = explode(".", $client->image)[0];
             return array_map('unlink', glob(FCPATH . "uploads/client_img/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "uploads/client_img/thumbs/$filename.*"));
         }
     }
 }

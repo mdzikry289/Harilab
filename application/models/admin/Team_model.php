@@ -150,6 +150,7 @@ class Team_model extends CI_Model
         if ($team->image != "default.jpg") {
             $filename = explode(".", $team->image)[0];
             return array_map('unlink', glob(FCPATH . "uploads/team_img/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "uploads/team_img/thumbs/$filename.*"));
         }
     }
 }

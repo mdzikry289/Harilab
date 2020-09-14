@@ -88,7 +88,21 @@ class Proyek_model extends CI_Model
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('image')) {
-            return $this->upload->data("file_name");
+            $gbr = $this->upload->data();
+                //Compress Image
+                $config['image_library']='gd2';
+                $config['source_image']='./uploads/proyek_img/'.$gbr['file_name'];
+                $config['create_thumb']= FALSE;
+                $config['maintain_ratio']= FALSE;
+                $config['quality']= '75%';
+                $config['width']= 600;
+                $config['height']= 480;
+                $config['new_image']= './uploads/proyek_img/thumbs/'.$gbr['file_name'];
+                $this->load->library('image_lib', $config);
+                $this->image_lib->resize();
+ 
+                return $gbr['file_name'];
+            // return $this->upload->data("file_name");
         }
         // print_r($this->upload->display_errors());
         return "default.jpg";
@@ -101,6 +115,7 @@ class Proyek_model extends CI_Model
         if ($proyek->image != "default.jpg") {
             $filename = explode(".", $proyek->image)[0];
             return array_map('unlink', glob(FCPATH . "uploads/proyek_img/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "uploads/proyek_img/thumbs/$filename.*"));
         }
     }
 }
