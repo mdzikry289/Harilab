@@ -64,7 +64,7 @@ class User_model extends CI_Model
         $this->nama_user = $post["nama_user"];
         $this->username = $post["username"];
         $this->password = $post["password"];
-        if($this->old_pass != $this->password){
+        if($this->old_pass != $this->old_pass_verify){
             $this->session->set_flashdata('error', 'Password lama salah.');
         }
         $this->level = $post["level"];
@@ -88,7 +88,7 @@ class User_model extends CI_Model
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']            = $this->id_user;
         $config['overwrite']            = true;
-        $config['max_size']             = 1024; // 1MB
+        $config['max_size']             = 15375; // 15MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
 

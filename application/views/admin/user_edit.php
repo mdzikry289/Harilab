@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <label for="old_pass">Password Lama</label>
                                         <input class="form-control <?php echo form_error('old_pass') ? 'is-invalid' : '' ?>" type="password" name="old_pass" placeholder="" />
-                                        <input type="hidden" name="password" />
+                                        <input type="hidden" name="old_pass_verify" value="<?php echo $user->password ?>" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('old_pass') ?>
                                         </div>

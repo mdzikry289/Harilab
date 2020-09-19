@@ -2,7 +2,7 @@
 
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
-        <h1><a href="#intro">Harilab<span>  Production</span></a></h1>
+        <h1><a href="#intro"></span></a></h1>
         <!-- <a href="index.html" class="scrollto"><img src="assets/img/logo.png" alt="" title=""></a> -->
       </div>
 

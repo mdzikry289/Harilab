@@ -62,7 +62,6 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama Client</th>
-                                                <!-- <th>Logo</th> -->
                                                 <th>Logo</th>
                                                 <th>Aksi</th>
                                             </tr>

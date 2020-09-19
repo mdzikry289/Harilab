@@ -59,7 +59,7 @@
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header">
-                                <a href="<?php echo site_url('admin/proyek') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+                                <a href="<?php echo site_url('admin/proyek') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                             <div class="card-body">
                                 <form action="<?php base_url('admin/proyek/add') ?>" method="POST" enctype="multipart/form-data">

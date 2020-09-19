@@ -53,7 +53,7 @@
                         <?php endif; ?>
 
                         <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Edit Data Proyek</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Edit Data Anggota Team</h1>
                         <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
 
                         <!-- DataTales Example -->

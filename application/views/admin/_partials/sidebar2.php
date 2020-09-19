@@ -1,3 +1,11 @@
+<!-- Admin Sidebar -->
+<!-- Nav Item - Blog -->
+<li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= site_url() ?>/admin/blog">
+        <i class="fas fa-fw fa-users"></i>
+        <span>Konten Blog</span></a>
+</li>
+
 <li class="nav-item <?php echo $this->uri->segment(2) == 'proyek' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/proyek">
         <i class="fas fa-fw fa-edit"></i>

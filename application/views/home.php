@@ -38,6 +38,28 @@
 
     </section><!-- End About Section -->
 
+    <!-- ======= Clients Section ======= -->
+    <section id="services" class="section-with-bg">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Our Core Services</h2>
+        </div>
+
+        <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
+          <!-- <?php foreach ($services as $s) { ?> -->
+            <div class="col-lg-3 col-md-4 col-xs-6">
+              <div class="client-logo">
+                <!-- <img src="<?= base_url() ?>/uploads/client_img/<?= $s->image; ?>" class="img-fluid" alt=""> -->
+              </div>
+            </div>
+          <!-- <?php } ?> -->
+        </div>
+
+      </div>
+
+    </section><!-- End Clients Section -->
+
     <!-- ======= Projects Section ======= -->
     <section id="projects">
 
@@ -83,13 +105,21 @@
               <div class="team" data-aos="fade-up" data-aos-delay="100">
                 <img src="<?= base_url() ?>/uploads/team_img/thumbs/<?= $t->image; ?>" alt="Speaker 1" class="img-fluid">
                 <div class="details">
-                  <h3><a href="speaker-details.html"><?= $t->nama_anggota ?></a></h3>
+                  <h3><?= $t->nama_anggota ?></h3>
                   <p><?= $t->jabatan ?></p>
                   <div class="social">
-                    <a target="_blank" rel="noopener noreferrer" href="<?= $t->twitter ?>"><i class="fa fa-twitter"></i></a>
+                    <?php if($t->twitter != "#"):?>
+                      <a target="_blank" rel="noopener noreferrer" href="<?= $t->twitter ?>"><i class="fa fa-twitter"></i></a>
+                    <?php endif;?>
+                    <?php if($t->fb != "#"):?>
                     <a target="_blank" rel="noopener noreferrer" href="<?= $t->fb ?>"><i class="fa fa-facebook"></i></a>
+                    <?php endif;?>
+                    <?php if($t->instagram != "#"):?>
                     <a target="_blank" rel="noopener noreferrer" href="<?= $t->instagram ?>"><i class="fa fa-instagram"></i></a>
+                    <?php endif;?>
+                    <?php if($t->linkedin != "#"):?>
                     <a target="_blank" rel="noopener noreferrer" href="<?= $t->linkedin ?>"><i class="fa fa-linkedin"></i></a>
+                    <?php endif;?>
                   </div>
                 </div>
               </div>
@@ -118,7 +148,7 @@
 
       </div>
 
-    </section><!-- End Sponsors Section -->
+    </section><!-- End Clients Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg">

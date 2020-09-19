@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 11, 2020 at 09:44 AM
+-- Generation Time: Sep 18, 2020 at 07:39 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -40,7 +40,35 @@ CREATE TABLE `tb_client` (
 INSERT INTO `tb_client` (`id_client`, `nama`, `image`) VALUES
 ('5f5531aad34bf', 'Yayasan Pendidikan Telkom', '5f5531aad34bf.jpg'),
 ('5f5531f573cbe', 'Akademi Telkom Jakarta', '5f5531f573cbe.jpg'),
-('5f5532254730d', 'Mizan Amanah', '5f5532254730d.jpg');
+('5f5532254730d', 'Mizan Amanah', '5f5532254730d.jpg'),
+('5f63b604152b7', 'Bagong', 'default.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kategori`
+--
+
+CREATE TABLE `tb_kategori` (
+  `id_kategori` varchar(25) NOT NULL,
+  `nama_kategori` varchar(50) NOT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'default.jpg'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_kategori`
+--
+
+INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`, `image`) VALUES
+('5f641f80c987b', 'Wedding Virtual', 'default.jpg'),
+('5f641f854fb75', 'Prewedding', 'default.jpg'),
+('5f641f9cad859', 'Video Clip', 'default.jpg'),
+('5f641fb358b38', 'Event Virtual', 'default.jpg'),
+('5f641fc107210', 'Event Organizer', 'default.jpg'),
+('5f641fea3c0ac', 'Multimedia Streaming System', 'default.jpg'),
+('5f641ff9d7910', 'TV Commercial', 'default.jpg'),
+('5f642158a6687', 'Behind The Scenes', 'default.jpg'),
+('5f6440f2c37f6', '3D Animation', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -138,6 +166,12 @@ INSERT INTO `tb_users` (`id_user`, `nama_user`, `username`, `password`, `level`,
 --
 ALTER TABLE `tb_client`
   ADD PRIMARY KEY (`id_client`);
+
+--
+-- Indexes for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `tb_proyek`

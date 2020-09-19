@@ -55,7 +55,7 @@
                         <div class="card shadow mb-4">
                             <div class="card-header">
                                 <a href="<?php echo site_url('admin/proyek/add') ?>"><i class="fas fa-plus"></i> Tambah Data Proyek</a>&nbsp;&nbsp;
-                                <a href="<?php echo site_url('admin/proyek/addcategory') ?>"><i class="fas fa-plus"></i> Tambah Kategori</a>
+                                <a href="<?php echo site_url('admin/category') ?>"><i class="fas fa-list-ul"></i> List Kategori</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
