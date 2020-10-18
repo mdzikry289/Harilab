@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+class Users extends CI_Controller
+{
 
     public function __construct()
     {
@@ -32,7 +33,7 @@ class Users extends CI_Controller {
     public function edit($id_user = null)
     {
         if (!isset($id_user)) redirect('admin/user');
-       
+
         $user = $this->user_model;
         $validation = $this->form_validation;
         $validation->set_rules($user->rules());
@@ -44,14 +45,14 @@ class Users extends CI_Controller {
 
         $data["user"] = $user->getById($id_user);
         if (!$data["user"]) show_404();
-        
+
         $this->load->view("admin/user_edit", $data);
     }
 
-    public function delete($id=null)
+    public function delete($id = null)
     {
         if (!isset($id)) show_404();
-        
+
         if ($this->user_model->delete($id)) {
             redirect(site_url('admin/users'));
         }

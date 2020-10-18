@@ -66,7 +66,7 @@
                                     <input type="hidden" name="id_kategori" value="<?php echo $kategori->id_kategori ?>" />
                                     <div class="form-group">
                                         <label for="nama_kategori">Nama Kategori</label>
-                                        <input class="form-control <?php echo form_error('nama_kategori') ? 'is-invalid' : '' ?>" type="text" name="nama_kategori" placeholder="" value="<?php echo $kategori->nama_kategori?>" />
+                                        <input class="form-control <?php echo form_error('nama_kategori') ? 'is-invalid' : '' ?>" type="text" name="nama_kategori" placeholder="" value="<?php echo $kategori->nama_kategori ?>" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('nama_kategori') ?>
                                         </div>
@@ -101,7 +101,7 @@
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
-                <?php $this->load->view('admin/_partials/footer')?>
+                <?php $this->load->view('admin/_partials/footer') ?>
                 <!-- End of Footer -->
 
             </div>
@@ -116,23 +116,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php $this->load->view("admin/_partials/logout_modal") ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url() ?>assets-backend/vendor/jquery/jquery.min.js"></script>

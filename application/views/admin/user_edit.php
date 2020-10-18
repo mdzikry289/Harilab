@@ -50,152 +50,138 @@
                             <div class="alert alert-success" role="alert">
                                 <?php echo $this->session->flashdata('success'); ?>
                             </div>
-                        <?php endif; ?>
+                        <?php elseif ($this->session->flashdata('error')) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $this->session->flashdata('error'); ?>
+                            <?php endif; ?>
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Edit Data User</h1>
-                        <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
+                            <!-- Page Heading -->
+                            <h1 class="h3 mb-2 text-gray-800">Edit Data User</h1>
+                            <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header">
-                                <a href="<?php echo site_url('admin/users') ?>"><i class="fas fa-arrow-left"></i> Back</a>
-                            </div>
-                            <div class="card-body">
-                                <form action="<?php base_url('admin/users/edit') ?>" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="id_user" value="<?php echo $user->id_user ?>" />
-                                    <div class="form-group">
-                                        <label for="nama_user">Nama Pengguna</label>
-                                        <input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" placeholder="" value="<?= $user->nama_user?>"/>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('nama_user') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="username">Username</label>
-                                        <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="" value="<?= $user->nama_user?>"/>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('username') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="old_pass">Password Lama</label>
-                                        <input class="form-control <?php echo form_error('old_pass') ? 'is-invalid' : '' ?>" type="password" name="old_pass" placeholder="" />
-                                        <input type="hidden" name="old_pass_verify" value="<?php echo $user->password ?>" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('old_pass') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="new_pass">Password Baru</label>
-                                        <input class="form-control <?php echo form_error('new_pass') ? 'is-invalid' : '' ?>" type="password" name="new_pass" placeholder="" />
-                                        <input type="hidden" name="password" value="<?php echo $user->password ?>" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('password') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="level">Level</label>
-                                        <select class="form-control <?php echo form_error('level') ? 'is-invalid' : '' ?>" name="level" placeholder="">
-                                            <option value="<?= $user->level?>"><?= $user->level?></option>
-                                            <option value="Admin">Admin</option>
-                                            <option value="Staff">Staff</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('category') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="image">Gambar Thumbnail</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?php echo form_error('image') ? 'is-invalid' : '' ?>" id="customFile" name="image">
-                                            <label class="custom-file-label" for="customFile"><?php echo $user->image ?></label>
-                                            <input type="hidden" name="old_image" value="<?php echo $user->image ?>" />
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('image') ?>
+                            <!-- DataTales Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header">
+                                    <a href="<?php echo site_url('admin/users') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+                                </div>
+                                <div class="card-body">
+                                    <form action="<?php base_url('admin/users/edit') ?>" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="id_user" value="<?php echo $user->id_user ?>" />
+                                        <div class="form-group">
+                                            <label for="nama_user">Nama Pengguna</label>
+                                            <input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" placeholder="" value="<?= $user->nama_user ?>" />
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('nama_user') ?>
+                                            </div>
                                         </div>
 
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="" value="<?= $user->nama_user ?>" />
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('username') ?>
+                                            </div>
+                                        </div>
 
-                                    <input class="btn btn-success" type="submit" name="btn" value="Save" />
-                                </form>
+                                        <div class="form-group">
+                                            <label for="old_pass">Password Lama</label>
+                                            <input class="form-control <?php echo form_error('old_pass') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="" />
+                                            <input type="hidden" name="old_pass" value="<?php echo $user->password ?>" />
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('old_pass') ?>
+                                            </div>
+                                        </div>
 
-                            </div>
+                                        <div class="form-group">
+                                            <label for="new_pass">Password Baru</label>
+                                            <input class="form-control <?php echo form_error('new_pass') ? 'is-invalid' : '' ?>" type="password" name="new_pass" placeholder="" />
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('password') ?>
+                                            </div>
+                                        </div>
 
-                            <!-- <div class="card-footer small text-muted">
+                                        <div class="form-group">
+                                            <label for="level">Level</label>
+                                            <select class="form-control <?php echo form_error('level') ? 'is-invalid' : '' ?>" name="level" placeholder="">
+                                                <option value="<?= $user->level ?>"><?= $user->level ?></option>
+                                                <option value="Admin">Admin</option>
+                                                <option value="Staff">Staff</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('category') ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="image">Gambar Thumbnail</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input <?php echo form_error('image') ? 'is-invalid' : '' ?>" id="customFile" name="image">
+                                                <label class="custom-file-label" for="customFile"><?php echo $user->image ?></label>
+                                                <input type="hidden" name="old_image" value="<?php echo $user->image ?>" />
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('image') ?>
+                                            </div>
+
+                                        </div>
+
+                                        <input class="btn btn-success" type="submit" name="btn" value="Save" />
+                                    </form>
+
+                                </div>
+
+                                <!-- <div class="card-footer small text-muted">
                                 * Diperlukan
                             </div> -->
-                        </div>
+                            </div>
+
+                            </div>
+                            <!-- /.container-fluid -->
 
                     </div>
-                    <!-- /.container-fluid -->
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <?php $this->load->view('admin/_partials/footer') ?>
+                    <!-- End of Footer -->
 
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <?php $this->load->view('admin/_partials/footer')?>
-                <!-- End of Footer -->
+                <!-- End of Content Wrapper -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+            <!-- Logout Modal-->
+            <?php $this->load->view("admin/_partials/logout_modal") ?>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+            <!-- Bootstrap core JavaScript-->
+            <script src="<?= base_url() ?>assets-backend/vendor/jquery/jquery.min.js"></script>
+            <script src="<?= base_url() ?>assets-backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url() ?>assets-backend/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url() ?>assets-backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="<?= base_url() ?>assets-backend/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url() ?>assets-backend/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="<?= base_url() ?>assets-backend/js/sb-admin-2.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url() ?>assets-backend/js/sb-admin-2.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="<?= base_url() ?>assets-backend/vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="<?= base_url() ?>assets-backend/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="<?= base_url() ?>assets-backend/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>assets-backend/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="<?= base_url() ?>assets-backend/js/demo/datatables-demo.js"></script>
-    <script>
-        // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
-    </script>
+            <!-- Page level custom scripts -->
+            <script src="<?= base_url() ?>assets-backend/js/demo/datatables-demo.js"></script>
+            <script>
+                // Add the following code if you want the name of the file appear on select
+                $(".custom-file-input").on("change", function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+            </script>
 
 </body>
 

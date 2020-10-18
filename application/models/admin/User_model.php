@@ -8,8 +8,6 @@ class User_model extends CI_Model
     public $nama_user;
     public $username;
     public $password;
-    public $old_pass;
-    public $new_pass;
     public $level;
     public $image = "default.jpg";
 
@@ -28,11 +26,6 @@ class User_model extends CI_Model
                 'rules' => 'required'
             ],
 
-            [
-                'field' => 'password',
-                'label' => 'Password',
-                'rules' => 'required'
-            ]
         ];
     }
 
@@ -60,12 +53,13 @@ class User_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->id_anggota = $post["id_user"];
+        $this->id_user = $post["id_user"];
         $this->nama_user = $post["nama_user"];
         $this->username = $post["username"];
-        $this->password = $post["password"];
-        if($this->old_pass != $this->old_pass_verify){
-            $this->session->set_flashdata('error', 'Password lama salah.');
+        if ($this->input->post['password'] != $this->input->post['old_pass']) {
+            $this->form_validation->set_message('required', 'Password lama tidak sama');
+        } else {
+            $this->password = $post["new_pass"];
         }
         $this->level = $post["level"];
         if (!empty($_FILES["image"]["name"])) {
