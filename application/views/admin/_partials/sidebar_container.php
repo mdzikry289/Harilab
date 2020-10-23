@@ -1,34 +1,38 @@
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('admin/dashboard') ?>">
-        <!-- <div class="sidebar-brand-icon rotate-n-15">
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('admin/dashboard') ?>">
+    <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-        <div class="sidebar-brand-text mx-3">Harilab Production</div>
-      </a>
+    <div class="sidebar-brand-text mx-3">Harilab Production</div>
+  </a>
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider my-0"> -->
+  <!-- Divider -->
+  <!-- <hr class="sidebar-divider my-0"> -->
 
-      <!-- Nav Item - Dashboard -->
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Navigation
-      </div>
-      <li class="nav-item <?php echo $this->uri->segment(2) == 'dashboard' ? 'active': '' ?>">
-        <a class="nav-link" href="<?= site_url('admin/dashboard')?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
+  <!-- Nav Item - Dashboard -->
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Navigation
+  </div>
+  <li class="nav-item <?php echo $this->uri->segment(2) == 'dashboard' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= site_url('admin/dashboard') ?>">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span></a>
+  </li>
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider"> -->
+  <!-- Divider -->
+  <!-- <hr class="sidebar-divider"> -->
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Content Management
-      </div>
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Content Management
+  </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <!-- <li class="nav-item">
+  <!-- Nav Item - Pages Collapse Menu -->
+  <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
@@ -42,8 +46,8 @@
         </div>
       </li> -->
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <!-- <li class="nav-item">
+  <!-- Nav Item - Utilities Collapse Menu -->
+  <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-edit"></i>
           <span>Utilities</span>
@@ -59,16 +63,16 @@
         </div>
       </li> -->
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider"> -->
+  <!-- Divider -->
+  <!-- <hr class="sidebar-divider"> -->
 
-      <!-- Heading -->
-      <!-- <div class="sidebar-heading">
+  <!-- Heading -->
+  <!-- <div class="sidebar-heading">
         Addons
       </div> -->
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <!-- <li class="nav-item">
+  <!-- Nav Item - Pages Collapse Menu -->
+  <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pages</span>
@@ -86,29 +90,30 @@
           </div>
         </div>
       </li> -->
-        <!-- Nav Item - Email -->
-        <!-- <li class="nav-item">
+  <!-- Nav Item - Email -->
+  <!-- <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-envelope"></i>
             <span>Email</span></a>
         </li> -->
 
-      <!-- Akses Menu SuperAdmin -->
-      <!-- Nav Item - Proyek -->
-      <?php if($this->session->userdata('level') == "SuperAdmin"): ?>
-        <?php $this->load->view('admin/_partials/sidebar1') ?>
-      <?php elseif($this->session->userdata('level') == "Admin"): ?>
-        <?php $this->load->view('admin/_partials/sidebar2') ?>
-      <?php else: ?>
-        <?php $this->load->view('admin/_partials/sidebar3') ?>
-      <?php endif; ?>
+  <!-- Akses Menu SuperAdmin -->
+  <!-- Nav Item - Proyek -->
+  <?php if ($this->session->userdata('level') == "SuperAdmin") : ?>
+    <?php $this->load->view('admin/_partials/sidebar1') ?>
+  <?php elseif ($this->session->userdata('level') == "Admin") : ?>
+    <?php $this->load->view('admin/_partials/sidebar2') ?>
+  <?php else : ?>
+    <?php $this->load->view('admin/_partials/sidebar3') ?>
+  <?php endif; ?>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  </div>
 
-    </ul>
+</ul>
+<!-- End Sidebar -->
