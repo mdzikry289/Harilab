@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 18, 2020 at 07:39 AM
+-- Generation Time: Oct 29, 2020 at 04:18 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -42,6 +42,17 @@ INSERT INTO `tb_client` (`id_client`, `nama`, `image`) VALUES
 ('5f5531f573cbe', 'Akademi Telkom Jakarta', '5f5531f573cbe.jpg'),
 ('5f5532254730d', 'Mizan Amanah', '5f5532254730d.jpg'),
 ('5f63b604152b7', 'Bagong', 'default.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_intro`
+--
+
+CREATE TABLE `tb_intro` (
+  `id_intro` varchar(25) NOT NULL,
+  `isi_konten` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -154,7 +165,7 @@ CREATE TABLE `tb_users` (
 
 INSERT INTO `tb_users` (`id_user`, `nama_user`, `username`, `password`, `level`, `image`) VALUES
 (1, 'Administrator', 'admin', 'admin', 'SuperAdmin', 'default.jpg'),
-(4, 'Hari AJ', 'Harilab', 'harilab', 'Admin', 'default.jpg'),
+(4, 'Hari AJ', 'Hari AJ', 'admin', 'Admin', 'default.jpg'),
 (5, 'Staff Harilab', 'staff', 'staff', 'Staff', 'default.jpg');
 
 --
