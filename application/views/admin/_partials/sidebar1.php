@@ -8,11 +8,11 @@
 </li>
 
 <!-- Nav Item - Blog -->
-<li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
+<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/blog">
         <i class="fas fa-fw fa-users"></i>
         <span>Konten Blog</span></a>
-</li>
+</li> -->
 
 <li class="nav-item <?php echo $this->uri->segment(2) == 'proyek' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/proyek">
@@ -35,11 +35,11 @@
 </li>
 
 <!-- Nav Item - Services -->
-<li class="nav-item <?php echo $this->uri->segment(2) == 'services' ? 'active' : '' ?>">
+<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'services' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/services">
         <i class="fas fa-fw fa-edit"></i>
         <span>Konten Our Services</span></a>
-</li>
+</li> -->
 
 <div class="sidebar-heading">
     Manajemen User

@@ -1,18 +1,18 @@
 <!-- Admin Sidebar -->
 
 <!-- Nav Item - Intro -->
-<li class="nav-item <?php echo $this->uri->segment(2) == 'intro' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= site_url() ?>/admin/intro">
+<li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= site_url() ?>/admin/blog">
         <i class="fas fa-fw fa-users"></i>
         <span>Konten Intro</span></a>
 </li>
 
 <!-- Nav Item - Blog -->
-<li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
+<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/blog">
         <i class="fas fa-fw fa-users"></i>
         <span>Konten Blog</span></a>
-</li>
+</li> -->
 
 <li class="nav-item <?php echo $this->uri->segment(2) == 'proyek' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/proyek">
