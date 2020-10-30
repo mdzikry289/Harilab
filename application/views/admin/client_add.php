@@ -29,8 +29,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+        
             <?php $this->load->view('admin/_partials/sidebar_container') ?>
             <!-- End of Sidebar -->
 

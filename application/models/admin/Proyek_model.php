@@ -43,6 +43,16 @@ class Proyek_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_proyek" => $id_proyek])->row();
     }
 
+    public function hitungJumlahProyek()
+    {
+        $query = $this->db->get('tb_proyek');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function save()
     {
         $post = $this->input->post();

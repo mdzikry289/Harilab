@@ -17,15 +17,15 @@ class Team_model extends CI_Model
     {
         return [
             [
-            'field' => 'nama_anggota',
-            'label' => 'Nama Anggota',
-            'rules' => 'required'
+                'field' => 'nama_anggota',
+                'label' => 'Nama Anggota',
+                'rules' => 'required'
             ],
 
             [
-            'field' => 'jabatan',
-            'label' => 'Jabatan',
-            'rules' => 'required'
+                'field' => 'jabatan',
+                'label' => 'Jabatan',
+                'rules' => 'required'
             ]
         ];
     }
@@ -40,28 +40,38 @@ class Team_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_anggota" => $id_anggota])->row();
     }
 
+    public function hitungJumlahTeam()
+    {
+        $query = $this->db->get('tb_team');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function save()
     {
         $post = $this->input->post();
         $this->id_anggota = uniqid();
         $this->nama_anggota = $post["nama_anggota"];
         $this->jabatan = $post["jabatan"];
-        if(!empty($post["instagram"])){
+        if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
         } else {
             $this->instagram = "#";
         }
-        if(!empty($post["twitter"])){
+        if (!empty($post["twitter"])) {
             $this->twitter = $post["twitter"];
         } else {
             $this->twitter = "#";
         }
-        if(!empty($post["fb"])){
+        if (!empty($post["fb"])) {
             $this->fb = $post["fb"];
         } else {
             $this->fb = "#";
         }
-        if(!empty($post["linkedin"])){
+        if (!empty($post["linkedin"])) {
             $this->linkedin = $post["linkedin"];
         } else {
             $this->linkedin = "#";
@@ -76,22 +86,22 @@ class Team_model extends CI_Model
         $this->id_anggota = $post["id_anggota"];
         $this->nama_anggota = $post["nama_anggota"];
         $this->jabatan = $post["jabatan"];
-        if(!empty($post["instagram"])){
+        if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
         } else {
             $this->instagram = "#";
         }
-        if(!empty($post["twitter"])){
+        if (!empty($post["twitter"])) {
             $this->twitter = $post["twitter"];
         } else {
             $this->twitter = "#";
         }
-        if(!empty($post["fb"])){
+        if (!empty($post["fb"])) {
             $this->fb = $post["fb"];
         } else {
             $this->fb = "#";
         }
-        if(!empty($post["linkedin"])){
+        if (!empty($post["linkedin"])) {
             $this->linkedin = $post["linkedin"];
         } else {
             $this->linkedin = "#";
@@ -124,19 +134,19 @@ class Team_model extends CI_Model
 
         if ($this->upload->do_upload('image')) {
             $gbr = $this->upload->data();
-                //Compress Image
-                $config['image_library']='gd2';
-                $config['source_image']='./uploads/team_img/'.$gbr['file_name'];
-                $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= FALSE;
-                $config['quality']= '75%';
-                $config['width']= 600;
-                $config['height']= 480;
-                $config['new_image']= './uploads/team_img/thumbs/'.$gbr['file_name'];
-                $this->load->library('image_lib', $config);
-                $this->image_lib->resize();
- 
-                return $gbr['file_name'];
+            //Compress Image
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/team_img/' . $gbr['file_name'];
+            $config['create_thumb'] = FALSE;
+            $config['maintain_ratio'] = FALSE;
+            $config['quality'] = '75%';
+            $config['width'] = 600;
+            $config['height'] = 480;
+            $config['new_image'] = './uploads/team_img/thumbs/' . $gbr['file_name'];
+            $this->load->library('image_lib', $config);
+            $this->image_lib->resize();
+
+            return $gbr['file_name'];
             // return $this->upload->data("file_name");
         }
         // print_r($this->upload->display_errors());

@@ -6,16 +6,22 @@ class Dashboard extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        //load model admin
+        //load model
         $this->load->model('m_login');
+        $this->load->model('admin/team_model');
+		$this->load->model('admin/client_model');
+		$this->load->model('admin/proyek_model');
     }
 
     public function index()
     {
         if($this->m_login->logged_id())
         {
-
-            $this->load->view("admin/dashboard");
+            $data["total_team"] = $this->team_model->hitungJumlahTeam();
+            $data["total_client"] = $this->client_model->hitungJumlahClient();
+            $data["total_proyek"] = $this->proyek_model->hitungJumlahProyek();
+            $this->load->view('admin/dashboard', $data);
+            // $this->load->view("admin/dashboard");
 
         }else{
 
@@ -23,12 +29,13 @@ class Dashboard extends CI_Controller {
             redirect("login");
 
         }
+
+        
     }
 
     public function logout()
     {
         $this->session->sess_destroy();
-        $this->output->clear_all_cache();
         redirect('login');
     }
 

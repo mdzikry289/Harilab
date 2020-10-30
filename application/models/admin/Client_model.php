@@ -30,6 +30,16 @@ class Client_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_client" => $id_client])->row();
     }
 
+    public function hitungJumlahClient()
+    {
+        $query = $this->db->get('tb_client');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function save()
     {
         $post = $this->input->post();
