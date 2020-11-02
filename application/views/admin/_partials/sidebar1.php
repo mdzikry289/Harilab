@@ -1,12 +1,5 @@
 <!-- SuperAdmin Sidebar -->
 
-<!-- Nav Item - Intro -->
-<li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= site_url() ?>/admin/blog">
-        <i class="fas fa-fw fa-edit"></i>
-        <span>Konten Intro</span></a>
-</li>
-
 <!-- Nav Item - Blog -->
 <!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/blog">

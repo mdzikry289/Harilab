@@ -84,7 +84,7 @@
                                                     <?php echo $u->level ?>
                                                 </td>
                                                 <td>
-                                                    <img src="<?= base_url('uploads/user_img/' . $u->image) ?>" width="64">
+                                                    <img src="<?= base_url('uploads/user_img/' . $u->image_users) ?>" width="64">
                                                 </td>
                                                 <td width="250">
                                                     <?php if ($u->level == 'SuperAdmin' ) : ?>

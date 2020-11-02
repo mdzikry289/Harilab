@@ -78,10 +78,10 @@
                                                         <a target="_blank" rel="noopener noreferrer" href="<?php echo $p->url ?>"><?php echo $p->url ?></a>
                                                     </td>
                                                     <td>
-                                                        <img src="<?= base_url('uploads/proyek_img/' . $p->image) ?>" width="64">
+                                                        <img src="<?= base_url('uploads/proyek_img/' . $p->image_proyek) ?>" width="64">
                                                     </td>
                                                     <td>
-                                                        <?php echo $p->category ?>
+                                                        <?php echo $p->nama_kategori ?>
                                                     </td>
                                                     <td width="250">
                                                         <a href="<?php echo site_url('admin/proyek/edit/' . $p->id_proyek) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>

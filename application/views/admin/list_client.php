@@ -69,10 +69,10 @@
                                             <?php foreach ($client as $c) : ?>
                                                 <tr>
                                                     <td>
-                                                        <?php echo $c->nama ?>
+                                                        <?php echo $c->nama_client ?>
                                                     </td>
                                                     <td>
-                                                        <img src="<?= base_url('uploads/client_img/' . $c->image) ?>" width="64">
+                                                        <img src="<?= base_url('uploads/client_img/' . $c->image_client) ?>" width="64">
                                                     </td>
                                                     <td width="250">
                                                         <a href="<?php echo site_url('admin/client/edit/' . $c->id_client) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>

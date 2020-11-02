@@ -72,11 +72,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="image">Gambar Thumbnail</label>
+                                        <label for="image_kategori">Gambar Thumbnail</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?php echo form_error('image') ? 'is-invalid' : '' ?>" id="customFile" name="image">
-                                            <label class="custom-file-label" for="customFile"><?php echo $kategori->image ?></label>
-                                            <input type="hidden" name="old_image" value="<?php echo $kategori->image ?>" />
+                                            <input type="file" class="custom-file-input <?php echo form_error('image_kategori') ? 'is-invalid' : '' ?>" id="customFile" name="image_kategori">
+                                            <label class="custom-file-label" for="customFile"><?php echo $kategori->image_kategori ?></label>
+                                            <input type="hidden" name="old_image" value="<?php echo $kategori->image_kategori ?>" />
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('image') ?>

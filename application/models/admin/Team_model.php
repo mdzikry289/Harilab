@@ -53,7 +53,6 @@ class Team_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->id_anggota = uniqid();
         $this->nama_anggota = $post["nama_anggota"];
         $this->jabatan = $post["jabatan"];
         if (!empty($post["instagram"])) {

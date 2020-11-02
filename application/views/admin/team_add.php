@@ -119,13 +119,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="image">Gambar Thumbnail</label>
+                                        <label for="image_team">Gambar Thumbnail</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?php echo form_error('image') ? 'is-invalid' : '' ?>" id="customFile" name="image">
+                                            <input type="file" class="custom-file-input <?php echo form_error('image_team') ? 'is-invalid' : '' ?>" id="customFile" name="image_team">
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('image') ?>
+                                            <?php echo form_error('image_team') ?>
                                         </div>
 
                                     </div>

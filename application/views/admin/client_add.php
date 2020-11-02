@@ -63,21 +63,21 @@
                             <div class="card-body">
                                 <form action="<?php base_url('admin/client/add') ?>" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="nama">Nama Client</label>
-                                        <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="" />
+                                        <label for="nama_client">Nama Client</label>
+                                        <input class="form-control <?php echo form_error('nama_client') ? 'is-invalid' : '' ?>" type="text" name="nama_client" placeholder="" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('nama') ?>
+                                            <?php echo form_error('nama_client') ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name">File Gambar</label>
+                                        <label for="image_client">File Gambar</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?php echo form_error('image') ? 'is-invalid' : '' ?>" id="customFile" name="image">
+                                            <input type="file" class="custom-file-input <?php echo form_error('image_client') ? 'is-invalid' : '' ?>" id="customFile" name="image_client">
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('image') ?>
+                                            <?php echo form_error('image_client') ?>
                                         </div>
 
                                     </div>

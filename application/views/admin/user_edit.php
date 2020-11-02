@@ -112,14 +112,14 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="image">Gambar Thumbnail</label>
+                                            <label for="image_users">Gambar Thumbnail</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input <?php echo form_error('image') ? 'is-invalid' : '' ?>" id="customFile" name="image">
-                                                <label class="custom-file-label" for="customFile"><?php echo $user->image ?></label>
-                                                <input type="hidden" name="old_image" value="<?php echo $user->image ?>" />
+                                                <input type="file" class="custom-file-input <?php echo form_error('image_users') ? 'is-invalid' : '' ?>" id="customFile" name="image_users">
+                                                <label class="custom-file-label" for="customFile"><?php echo $user->image_users ?></label>
+                                                <input type="hidden" name="old_image" value="<?php echo $user->image_users ?>" />
                                             </div>
                                             <div class="invalid-feedback">
-                                                <?php echo form_error('image') ?>
+                                                <?php echo form_error('image_users') ?>
                                             </div>
 
                                         </div>

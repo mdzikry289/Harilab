@@ -1,12 +1,5 @@
 <!-- Staff Sidebar -->
 
-<!-- Nav Item - Intro -->
-<li class="nav-item <?php echo $this->uri->segment(2) == 'intro' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= site_url() ?>/admin/intro">
-        <i class="fas fa-fw fa-users"></i>
-        <span>Konten Intro</span></a>
-</li>
-
 <!-- Nav Item - Blog -->
 <li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/blog">
@@ -20,7 +13,7 @@
         <span>Konten Proyek</span></a>
 </li>
 
-<!-- Nav Item - Tables (FORBIDDEN) -->
+<!-- Nav Item - Team (FORBIDDEN) -->
 <!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'team' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/team">
         <i class="fas fa-fw fa-edit"></i>

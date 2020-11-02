@@ -73,7 +73,7 @@
                                                         <?php echo $k->nama_kategori ?>
                                                     </td>
                                                     <td>
-                                                        <img src="<?= base_url('uploads/kategori_img/' . $k->image) ?>" width="64">
+                                                        <img src="<?= base_url('uploads/kategori_img/' . $k->image_kategori) ?>" width="64">
                                                     </td>
                                                     <td width="250">
                                                         <a href="<?php echo site_url('admin/category/edit/' . $k->id_kategori) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>

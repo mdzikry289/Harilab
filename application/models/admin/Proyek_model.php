@@ -14,21 +14,21 @@ class Proyek_model extends CI_Model
     {
         return [
             [
-            'field' => 'nama_proyek',
-            'label' => 'Nama Proyek',
-            'rules' => 'required'
+                'field' => 'nama_proyek',
+                'label' => 'Nama Proyek',
+                'rules' => 'required'
             ],
 
             [
-            'field' => 'url',
-            'label' => 'Link Proyek',
-            'rules' => 'required'
+                'field' => 'url',
+                'label' => 'Link Proyek',
+                'rules' => 'required'
             ],
 
             [
-            'field' => 'category',
-            'label' => 'Kategori',
-            'rules' => 'required'
+                'field' => 'category',
+                'label' => 'Kategori',
+                'rules' => 'required'
             ]
         ];
     }
@@ -41,6 +41,17 @@ class Proyek_model extends CI_Model
     public function getById($id_proyek)
     {
         return $this->db->get_where($this->_table, ["id_proyek" => $id_proyek])->row();
+    }
+
+    function getByJoin()
+    {
+
+        $this->db->select('*');
+        $this->db->from('tb_proyek');
+        $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_proyek.id_kategori', 'left');
+        $this->db->join('tb_team', 'tb_team.id_anggota = tb_proyek.id_anggota', 'left');
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function hitungJumlahProyek()
@@ -56,7 +67,6 @@ class Proyek_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->id_proyek = uniqid();
         $this->nama_proyek = $post["nama_proyek"];
         $this->url = $post["url"];
         $this->category = $post["category"];
@@ -99,19 +109,19 @@ class Proyek_model extends CI_Model
 
         if ($this->upload->do_upload('image')) {
             $gbr = $this->upload->data();
-                //Compress Image
-                $config['image_library']='gd2';
-                $config['source_image']='./uploads/proyek_img/'.$gbr['file_name'];
-                $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= FALSE;
-                $config['quality']= '75%';
-                $config['width']= 600;
-                $config['height']= 480;
-                $config['new_image']= './uploads/proyek_img/thumbs/'.$gbr['file_name'];
-                $this->load->library('image_lib', $config);
-                $this->image_lib->resize();
- 
-                return $gbr['file_name'];
+            //Compress Image
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/proyek_img/' . $gbr['file_name'];
+            $config['create_thumb'] = FALSE;
+            $config['maintain_ratio'] = FALSE;
+            $config['quality'] = '75%';
+            $config['width'] = 600;
+            $config['height'] = 480;
+            $config['new_image'] = './uploads/proyek_img/thumbs/' . $gbr['file_name'];
+            $this->load->library('image_lib', $config);
+            $this->image_lib->resize();
+
+            return $gbr['file_name'];
             // return $this->upload->data("file_name");
         }
         // print_r($this->upload->display_errors());

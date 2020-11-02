@@ -12,7 +12,7 @@ class Proyek extends CI_Controller {
 
     public function index()
     {
-        $data["proyek"] = $this->proyek_model->getAll();
+        $data["proyek"] = $this->proyek_model->getByJoin();
         $this->load->view("admin/list_proyek", $data);
     }
 

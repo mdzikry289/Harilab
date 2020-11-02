@@ -76,7 +76,7 @@
                                                         <?php echo $a->jabatan ?>
                                                     </td>
                                                     <td>
-                                                        <img src="<?= base_url('uploads/team_img/'.$a->image) ?>" width="64">
+                                                        <img src="<?= base_url('uploads/team_img/'.$a->image_team) ?>" width="64">
                                                     </td>
                                                     <td width="250">
                                                         <a href="<?php echo site_url('admin/team/edit/' . $a->id_anggota) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>

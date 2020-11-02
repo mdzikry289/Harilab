@@ -4,14 +4,14 @@ class Client_model extends CI_Model
 {
     private $_table = "tb_client";
     public $id_client;
-    public $nama;
+    public $nama_client;
     public $image = "default.jpg";
 
     public function rules()
     {
         return [
             [
-                'field' => 'nama',
+                'field' => 'nama_client',
                 'label' => 'Nama Client',
                 'rules' => 'required'
             ],
@@ -43,8 +43,7 @@ class Client_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->id_client = uniqid();
-        $this->nama = $post["nama"];
+        $this->nama_client = $post["nama_client"];
         $this->image = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
@@ -53,7 +52,7 @@ class Client_model extends CI_Model
     {
         $post = $this->input->post();
         $this->id_client = $post["id_client"];
-        $this->nama = $post["nama"];
+        $this->nama_client = $post["nama_client"];
         if (!empty($_FILES["image"]["name"])) {
             $this->image = $this->_uploadImage();
         } else {

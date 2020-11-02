@@ -33,7 +33,6 @@ class Category_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->id_kategori = uniqid();
         $this->nama_kategori = $post["nama_kategori"];
         $this->image = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
