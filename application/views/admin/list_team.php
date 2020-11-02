@@ -73,7 +73,7 @@
                                                         <?php echo $a->nama_anggota ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $a->jabatan ?>
+                                                        <?php echo $a->nama_jabatan ?>
                                                     </td>
                                                     <td>
                                                         <img src="<?= base_url('uploads/team_img/'.$a->image_team) ?>" width="64">

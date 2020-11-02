@@ -12,7 +12,7 @@ class Team extends CI_Controller {
 
     public function index()
     {
-        $data["team"] = $this->team_model->getAll();
+        $data["team"] = $this->team_model->getByJoin();
         $this->load->view("admin/list_team", $data);
     }
 

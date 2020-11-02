@@ -10,21 +10,21 @@
 <li class="nav-item <?php echo $this->uri->segment(2) == 'proyek' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/proyek">
         <i class="fas fa-fw fa-edit"></i>
-        <span>Konten Proyek</span></a>
+        <span>Kelola Proyek</span></a>
 </li>
 
 <!-- Nav Item - Tables -->
 <li class="nav-item <?php echo $this->uri->segment(2) == 'team' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/team">
         <i class="fas fa-fw fa-edit"></i>
-        <span>Konten Team</span></a>
+        <span>Kelola Team</span></a>
 </li>
 
 <!-- Nav Item - Client -->
 <li class="nav-item <?php echo $this->uri->segment(2) == 'client' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>/admin/client">
         <i class="fas fa-fw fa-edit"></i>
-        <span>Konten Client</span></a>
+        <span>Kelola Client</span></a>
 </li>
 
 <!-- Nav Item - Users (FORBIDDEN) -->

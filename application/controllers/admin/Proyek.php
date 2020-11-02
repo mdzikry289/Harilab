@@ -7,6 +7,7 @@ class Proyek extends CI_Controller {
     {
         parent::__construct();
         $this->load->model("admin/proyek_model");
+        $this->load->model("admin/category_model");
         $this->load->library('form_validation');
     }
 
@@ -26,7 +27,8 @@ class Proyek extends CI_Controller {
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("admin/proyek_add");
+        $data["kategori"] = $this->category_model->getAll();
+        $this->load->view("admin/proyek_add", $data);
     }
 
     public function edit($id_proyek = null)

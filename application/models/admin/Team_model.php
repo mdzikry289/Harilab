@@ -50,6 +50,15 @@ class Team_model extends CI_Model
         }
     }
 
+    function getByJoin()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_team');
+        $this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_team.id_jabatan', 'left');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();

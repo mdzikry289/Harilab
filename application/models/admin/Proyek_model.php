@@ -50,6 +50,7 @@ class Proyek_model extends CI_Model
         $this->db->from('tb_proyek');
         $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_proyek.id_kategori', 'left');
         $this->db->join('tb_team', 'tb_team.id_anggota = tb_proyek.id_anggota', 'left');
+        $this->db->join('tb_client', 'tb_client.id_client = tb_proyek.id_client', 'left');
         $query = $this->db->get();
         return $query->result();
     }
