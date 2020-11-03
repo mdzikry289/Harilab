@@ -6,14 +6,22 @@ class Team extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        //load model
         $this->load->model("admin/team_model");
+        $this->load->model("login_model");
+        $this->load->model("admin/jabatan_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data["team"] = $this->team_model->getByJoin();
-        $this->load->view("admin/list_team", $data);
+        if($this->login_model->logged_id()){
+            $data["team"] = $this->team_model->getByJoin();
+            $this->load->view("admin/list_team", $data);
+        } else {
+            redirect("login");
+        }
+
     }
 
     public function add()
@@ -34,6 +42,7 @@ class Team extends CI_Controller {
         if (!isset($id_team)) redirect('admin/team');
        
         $team = $this->team_model;
+        $jabatan = $this->jabatan_model;
         $validation = $this->form_validation;
         $validation->set_rules($team->rules());
 
@@ -43,6 +52,8 @@ class Team extends CI_Controller {
         }
 
         $data["team"] = $team->getById($id_team);
+        $data["jabatan"] = $jabatan->getAll();
+
         if (!$data["team"]) show_404();
         
         $this->load->view("admin/team_edit", $data);

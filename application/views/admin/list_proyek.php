@@ -62,6 +62,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama Proyek</th>
+                                                <th>Client</th>
                                                 <th>Link Proyek</th>
                                                 <th>Thumbnail</th>
                                                 <th>Kategori</th>
@@ -75,6 +76,9 @@
                                                         <?php echo $p->nama_proyek ?>
                                                     </td>
                                                     <td>
+                                                        <?= $p->nama_client ?>
+                                                    </td>
+                                                    <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="<?php echo $p->url ?>"><?php echo $p->url ?></a>
                                                     </td>
                                                     <td>
@@ -83,7 +87,7 @@
                                                     <td>
                                                         <?php echo $p->nama_kategori ?>
                                                     </td>
-                                                    <td width="250">
+                                                    <td width="100">
                                                         <a href="<?php echo site_url('admin/proyek/edit/' . $p->id_proyek) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
                                                         <a onclick="deleteConfirm('<?php echo site_url('admin/proyek/delete/' . $p->id_proyek) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                     </td>

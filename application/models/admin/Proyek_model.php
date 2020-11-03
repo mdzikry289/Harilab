@@ -7,8 +7,9 @@ class Proyek_model extends CI_Model
     public $id_proyek;
     public $nama_proyek;
     public $url;
-    public $category;
-    public $image = "default.jpg";
+    public $id_kategori;
+    public $id_client;
+    public $image_proyek = "default.jpg";
 
     public function rules()
     {
@@ -25,11 +26,11 @@ class Proyek_model extends CI_Model
                 'rules' => 'required'
             ],
 
-            [
-                'field' => 'category',
-                'label' => 'Kategori',
-                'rules' => 'required'
-            ]
+            // [
+            //     'field' => 'category',
+            //     'label' => 'Kategori',
+            //     'rules' => 'required'
+            // ]
         ];
     }
 
@@ -55,6 +56,13 @@ class Proyek_model extends CI_Model
         return $query->result();
     }
 
+    function getByJoinID($id)
+    {
+        $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_proyek.id_kategori', 'left');
+        $this->db->join('tb_client', 'tb_client.id_client = tb_proyek.id_client', 'left');
+        return $this->db->get_where($this->_table, ["id_proyek" => $id])->row();
+    }
+
     public function hitungJumlahProyek()
     {
         $query = $this->db->get('tb_proyek');
@@ -70,8 +78,9 @@ class Proyek_model extends CI_Model
         $post = $this->input->post();
         $this->nama_proyek = $post["nama_proyek"];
         $this->url = $post["url"];
-        $this->category = $post["category"];
-        $this->image = $this->_uploadImage();
+        $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_proyek.id_kategori', 'left');
+        $this->id_kategori = $post["id_kategori"];
+        $this->image_proyek = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -81,11 +90,12 @@ class Proyek_model extends CI_Model
         $this->id_proyek = $post["id_proyek"];
         $this->nama_proyek = $post["nama_proyek"];
         $this->url = $post["url"];
-        $this->category = $post["category"];
+        $this->id_kategori = $post["id_kategori"];
+        $this->id_client = $post["id_client"];
         if (!empty($_FILES["image"]["name"])) {
-            $this->image = $this->_uploadImage();
+            $this->image_proyek = $this->_uploadImage();
         } else {
-            $this->image = $post["old_image"];
+            $this->image_proyek = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_proyek' => $post['id_proyek']));
     }

@@ -5,7 +5,7 @@ class Client_model extends CI_Model
     private $_table = "tb_client";
     public $id_client;
     public $nama_client;
-    public $image = "default.jpg";
+    public $image_client = "default.jpg";
 
     public function rules()
     {
@@ -44,7 +44,7 @@ class Client_model extends CI_Model
     {
         $post = $this->input->post();
         $this->nama_client = $post["nama_client"];
-        $this->image = $this->_uploadImage();
+        $this->image_client = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -54,9 +54,9 @@ class Client_model extends CI_Model
         $this->id_client = $post["id_client"];
         $this->nama_client = $post["nama_client"];
         if (!empty($_FILES["image"]["name"])) {
-            $this->image = $this->_uploadImage();
+            $this->image_client = $this->_uploadImage();
         } else {
-            $this->image = $post["old_image"];
+            $this->image_client = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_client' => $post['id_client']));
     }
@@ -122,8 +122,8 @@ class Client_model extends CI_Model
     {
 
         $client = $this->getById($id);
-        if ($client->image != "default.jpg") {
-            $filename = explode(".", $client->image)[0];
+        if ($client->image_client != "default.jpg") {
+            $filename = explode(".", $client->image_client)[0];
             return array_map('unlink', glob(FCPATH . "uploads/client_img/$filename.*"));
             return array_map('unlink', glob(FCPATH . "uploads/client_img/thumbs/$filename.*"));
         }

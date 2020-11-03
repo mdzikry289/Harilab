@@ -6,14 +6,22 @@ class Client extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        //load model
         $this->load->model("admin/client_model");
+        $this->load->model("login_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data["client"] = $this->client_model->getAll();
-        $this->load->view("admin/list_client", $data);
+        //cek session
+        if($this->login_model->logged_id()){
+            $data["client"] = $this->client_model->getAll();
+            $this->load->view("admin/list_client", $data);
+        } else{
+            //jika tidak ada session maka redirect ke halaman login
+            redirect("login");
+        }
     }
 
     public function add()

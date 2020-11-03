@@ -30,96 +30,93 @@
 
         <!-- Sidebar -->
 
-            <?php $this->load->view('admin/_partials/sidebar_container') ?>
-            <!-- End of Sidebar -->
+        <?php $this->load->view('admin/_partials/sidebar_container') ?>
+        <!-- End of Sidebar -->
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Main Content -->
-                <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-                    <!-- Topbar -->
-                    <?php $this->load->view('admin/_partials/navbar') ?>
-                    <!-- End of Topbar -->
+                <!-- Topbar -->
+                <?php $this->load->view('admin/_partials/navbar') ?>
+                <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-                        <?php if ($this->session->flashdata('success')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?php echo $this->session->flashdata('success'); ?>
-                            </div>
-                        <?php endif; ?>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <?php if ($this->session->flashdata('success')) : ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $this->session->flashdata('success'); ?>
+                        </div>
+                    <?php endif; ?>
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Edit Data Proyek</h1>
-                        <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Edit Data Proyek</h1>
+                    <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header">
-                                <a href="<?php echo site_url('admin/proyek') ?>"><i class="fas fa-arrow-left"></i> Back</a>
-                            </div>
-                            <div class="card-body">
-                                <form action="<?php base_url('admin/proyek/edit') ?>" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="id_proyek" value="<?php echo $proyek->id_proyek ?>" />
-                                    <div class="form-group">
-                                        <label for="nama_proyek">Nama Proyek</label>
-                                        <input class="form-control <?php echo form_error('nama_proyek') ? 'is-invalid' : '' ?>" type="text" name="nama_proyek" placeholder="" value="<?php echo $proyek->nama_proyek ?>" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('nama_proyek') ?>
-                                        </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <a href="<?php echo site_url('admin/proyek') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+                        </div>
+                        <div class="card-body">
+                            <form action="<?php base_url('admin/proyek/edit') ?>" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="id_proyek" value="<?php echo $proyek->id_proyek ?>" />
+                                <div class="form-group">
+                                    <label for="nama_proyek">Nama Proyek</label>
+                                    <input class="form-control <?php echo form_error('nama_proyek') ? 'is-invalid' : '' ?>" type="text" name="nama_proyek" placeholder="" value="<?php echo $proyek->nama_proyek ?>" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('nama_proyek') ?>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="url">Link Proyek</label>
-                                        <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="url" name="url" placeholder="" value="<?php echo $proyek->url ?>" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('url') ?>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="url">Link Proyek</label>
+                                    <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="url" name="url" placeholder="" value="<?php echo $proyek->url ?>" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('url') ?>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="image_proyek">Gambar Thumbnail</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?php echo form_error('image_proyek') ? 'is-invalid' : '' ?>" id="customFile" name="image_proyek">
-                                            <label class="custom-file-label" for="customFile"><?php echo $proyek->image_proyek ?></label>
-                                            <input type="hidden" name="old_image" value="<?php echo $proyek->image_proyek ?>" />
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('image') ?>
-                                        </div>
-
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_client">Client</label>
+                                    <select class="form-control <?php echo form_error('id_client') ? 'is-invalid' : '' ?>" name="id_client" placeholder="">
+                                        <option value="<?php echo $proyek->id_client ?>"><?php echo $proyek->nama_client ?></option>
+                                        <?php foreach ($client as $c) : ?>
+                                            <option value="<?php echo $c->id_client ?>"><?php echo $c->nama_client ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('nama_kategori') ?>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="category">Kategori</label>
-                                        <select class="form-control <?php echo form_error('category') ? 'is-invalid' : '' ?>" name="category" placeholder="">
-                                            <option value="<?php echo $proyek->category ?>"><?php echo $proyek->category ?></option>
-                                            <option value="Wedding Virtual">Wedding Virtual</option>
-                                            <option value="Prewedding">Prewedding</option>
-                                            <option value="Video Clip">Video Clip</option>
-                                            <option value="Event Virtual ">Event Virtual</option>
-                                            <option value="Event Organizer">Event Organizer</option>
-                                            <option value="Multimedia Streaming System">Multimedia Streaming System</option>
-                                            <option value="TV Commercial">TV Commercial</option>
-                                            <option value="Music Production (Recording)">Music Production (Recording)</option>
-                                            <option value="Music Production (Mixing)">Music Production (Mixing)</option>
-                                            <option value="Music Production (Mastering)">Music Production (Mastering)</option>
-                                            <option value="Behind The Scenes (Foto)">Behind The Scenes (Foto)</option>
-                                            <option value="Behind The Scenes (Video)">Behind The Scenes (Video)</option>
-                                            <option value="Company Profile">Company Profile</option>
-                                            <option value="Foto Product">Foto Product</option>
-                                            <option value="Digital Video Product">Digital Video Product </option>
-                                            <option value="Motion Graphic & Info Grafis">Motion Graphic & Info Grafis</option>
-                                            <option value="3D Animation">3D Animation</option>
-                                            <option value="Design Graphic">Design Graphic</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('category') ?>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image_proyek">Gambar Thumbnail</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input <?php echo form_error('image_proyek') ? 'is-invalid' : '' ?>" id="customFile" name="image_proyek">
+                                        <label class="custom-file-label" for="customFile"><?php echo $proyek->image_proyek ?></label>
+                                        <input type="hidden" name="old_image" value="<?php echo $proyek->image_proyek ?>" />
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('image_proyek') ?>
                                     </div>
 
+                                </div>
 
-                                    <!-- <div class="form-group">
+                                <div class="form-group">
+                                    <label for="id_kategori">Kategori</label>
+                                    <select class="form-control <?php echo form_error('id_kategori') ? 'is-invalid' : '' ?>" name="id_kategori" placeholder="">
+                                        <option value="<?php echo $proyek->id_kategori ?>"><?php echo $proyek->nama_kategori ?></option>
+                                        <?php foreach ($kategori as $k) : ?>
+                                            <option value="<?php echo $k->id_kategori ?>"><?php echo $k->nama_kategori ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('nama_kategori') ?>
+                                    </div>
+                                </div>
+
+
+                                <!-- <div class="form-group">
 								<label for="pendapatan">Pendapatan per Bulan*</label>
 								<input class="form-control <?php echo form_error('pendapatan') ? 'is-invalid' : '' ?>"
 								 type="text" name="pendapatan" placeholder="" />
@@ -128,28 +125,28 @@
 								</div>
 							</div> -->
 
-                                    <input class="btn btn-success" type="submit" name="btn" value="Save" />
-                                </form>
+                                <input class="btn btn-success" type="submit" name="btn" value="Save" />
+                            </form>
 
-                            </div>
-
-                            <!-- <div class="card-footer small text-muted">
-                                * Diperlukan
-                            </div> -->
                         </div>
 
+                        <!-- <div class="card-footer small text-muted">
+                                * Diperlukan
+                            </div> -->
                     </div>
-                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <?php $this->load->view('admin/_partials/footer')?>
-                <!-- End of Footer -->
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php $this->load->view('admin/_partials/footer') ?>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

@@ -6,12 +6,12 @@ class Team_model extends CI_Model
 
     public $id_anggota;
     public $nama_anggota;
-    public $jabatan;
+    public $id_jabatan;
     public $instagram;
     public $twitter;
     public $fb;
     public $linkedin;
-    public $image = "default.jpg";
+    public $image_team = "default.jpg";
 
     public function rules()
     {
@@ -21,12 +21,6 @@ class Team_model extends CI_Model
                 'label' => 'Nama Anggota',
                 'rules' => 'required'
             ],
-
-            [
-                'field' => 'jabatan',
-                'label' => 'Jabatan',
-                'rules' => 'required'
-            ]
         ];
     }
 
@@ -37,6 +31,7 @@ class Team_model extends CI_Model
 
     public function getById($id_anggota)
     {
+        $this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_team.id_jabatan', 'left');
         return $this->db->get_where($this->_table, ["id_anggota" => $id_anggota])->row();
     }
 
@@ -84,7 +79,7 @@ class Team_model extends CI_Model
         } else {
             $this->linkedin = "#";
         }
-        $this->image = $this->_uploadImage();
+        $this->image_team = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -93,7 +88,7 @@ class Team_model extends CI_Model
         $post = $this->input->post();
         $this->id_anggota = $post["id_anggota"];
         $this->nama_anggota = $post["nama_anggota"];
-        $this->jabatan = $post["jabatan"];
+        $this->id_jabatan = $post["id_jabatan"];
         if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
         } else {
@@ -115,9 +110,9 @@ class Team_model extends CI_Model
             $this->linkedin = "#";
         }
         if (!empty($_FILES["image"]["name"])) {
-            $this->image = $this->_uploadImage();
+            $this->image_team = $this->_uploadImage();
         } else {
-            $this->image = $post["old_image"];
+            $this->image_team = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_anggota' => $post['id_anggota']));
     }
@@ -165,8 +160,8 @@ class Team_model extends CI_Model
     {
 
         $team = $this->getById($id_anggota);
-        if ($team->image != "default.jpg") {
-            $filename = explode(".", $team->image)[0];
+        if ($team->image_team != "default.jpg") {
+            $filename = explode(".", $team->image_team)[0];
             return array_map('unlink', glob(FCPATH . "uploads/team_img/$filename.*"));
             return array_map('unlink', glob(FCPATH . "uploads/team_img/thumbs/$filename.*"));
         }

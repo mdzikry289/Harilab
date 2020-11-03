@@ -7,14 +7,20 @@ class Users extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        //load model
+        $this->load->model("login_model");
         $this->load->model("admin/user_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data["user"] = $this->user_model->getAll();
-        $this->load->view("admin/list_user", $data);
+        if ($this->login_model->logged_id()) {
+            $data["user"] = $this->user_model->getAll();
+            $this->load->view("admin/list_user", $data);
+        } else{
+            redirect("login");
+        }
     }
 
     public function add()

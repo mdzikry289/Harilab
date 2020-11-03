@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
     {
         parent::__construct();
         //load model
-        $this->load->model('m_login');
+        $this->load->model('login_model');
         $this->load->model('admin/team_model');
 		$this->load->model('admin/client_model');
 		$this->load->model('admin/proyek_model');
@@ -15,7 +15,8 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        if($this->m_login->logged_id())
+        //cek session
+        if($this->login_model->logged_id())
         {
             $data["total_team"] = $this->team_model->hitungJumlahTeam();
             $data["total_client"] = $this->client_model->hitungJumlahClient();
