@@ -53,7 +53,7 @@ class Client_model extends CI_Model
         $post = $this->input->post();
         $this->id_client = $post["id_client"];
         $this->nama_client = $post["nama_client"];
-        if (!empty($_FILES["image"]["name"])) {
+        if (!empty($_FILES["image_client"]["name"])) {
             $this->image_client = $this->_uploadImage();
         } else {
             $this->image_client = $post["old_image"];
@@ -89,7 +89,7 @@ class Client_model extends CI_Model
     {
         $config['upload_path']          = './uploads/client_img/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->id_client;
+        $config['file_name']            = $this->nama_client;
         $config['overwrite']            = true;
         $config['max_size']             = 15375; // 15MB
         // $config['max_width']            = 1024;
@@ -97,7 +97,7 @@ class Client_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('image')) {
+        if ($this->upload->do_upload('image_client')) {
             $gbr = $this->upload->data();
                 //Compress Image
                 $config['image_library']='gd2';
