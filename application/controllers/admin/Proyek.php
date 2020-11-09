@@ -11,6 +11,7 @@ class Proyek extends CI_Controller
         $this->load->model("login_model");
         $this->load->model("admin/proyek_model");
         $this->load->model("admin/category_model");
+        $this->load->model("admin/team_model");
         $this->load->model("admin/client_model");
         $this->load->library('form_validation');
     }
@@ -30,6 +31,8 @@ class Proyek extends CI_Controller
     public function add()
     {
         $proyek = $this->proyek_model;
+        $client = $this->client_model;
+        $team = $this->team_model;
         $validation = $this->form_validation;
         $validation->set_rules($proyek->rules());
         if ($validation->run()) {
@@ -38,6 +41,8 @@ class Proyek extends CI_Controller
         }
 
         $data["kategori"] = $this->category_model->getAll();
+        $data["client"] = $client->getAll();
+        $data["team"] = $team->getAll();
         $this->load->view("admin/proyek_add", $data);
     }
 
@@ -48,6 +53,7 @@ class Proyek extends CI_Controller
         $proyek = $this->proyek_model;
         $kategori = $this->category_model;
         $client = $this->client_model;
+        $team = $this->team_model;
         $validation = $this->form_validation;
         $validation->set_rules($proyek->rules());
 
@@ -59,6 +65,7 @@ class Proyek extends CI_Controller
         $data["proyek"] = $proyek->getByJoinID($id_proyek);
         $data["kategori"] = $kategori->getAll();
         $data["client"] = $client->getAll();
+        $data["team"] = $team->getAll();
         if (!$data["proyek"]) show_404();
 
         $this->load->view("admin/proyek_edit", $data);

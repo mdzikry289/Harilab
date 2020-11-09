@@ -47,10 +47,10 @@
         </div>
 
         <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-          <!-- <?php foreach ($services as $s) { ?> -->
+          <!-- <?php foreach ($kategori as $k) { ?> -->
             <div class="col-lg-3 col-md-4 col-xs-6">
               <div class="client-logo">
-                <!-- <img src="<?= base_url() ?>/uploads/client_img/<?= $s->image; ?>" class="img-fluid" alt=""> -->
+                <img src="<?= base_url() ?>/uploads/client_img/<?= $k->image_kategori; ?>" class="img-fluid" alt="">
               </div>
             </div>
           <!-- <?php } ?> -->
@@ -75,7 +75,7 @@
             <div class="col-lg-3 col-md-4">
               <div class="projects-gallery">
                 <a href="<?= base_url() ?><?= $p->url; ?>" class="venobox" data-vbtype="video" data-gall="projects-gallery" data-autoplay="true">
-                  <img src="<?= base_url('uploads/proyek_img/' . $p->image) ?>" alt="" class="img-fluid">
+                  <img src="<?= base_url('uploads/proyek_img/' . $p->image_proyek) ?>" alt="" class="img-fluid">
                 </a>
               </div>
             </div>
@@ -103,10 +103,10 @@
           <?php foreach ($team as $t) { ?>
             <div class="col-lg-4 col-md-6">
               <div class="team" data-aos="fade-up" data-aos-delay="100">
-                <img src="<?= base_url() ?>/uploads/team_img/thumbs/<?= $t->image; ?>" alt="Speaker 1" class="img-fluid">
+                <img src="<?= base_url() ?>/uploads/team_img/thumbs/<?= $t->image_team; ?>" alt="Speaker 1" class="img-fluid">
                 <div class="details">
                   <h3><?= $t->nama_anggota ?></h3>
-                  <p><?= $t->jabatan ?></p>
+                  <p><?= $t->nama_jabatan ?></p>
                   <div class="social">
                     <?php if($t->twitter != "#"):?>
                       <a target="_blank" rel="noopener noreferrer" href="<?= $t->twitter ?>"><i class="fa fa-twitter"></i></a>
@@ -140,7 +140,7 @@
           <?php foreach ($client as $c) { ?>
             <div class="col-lg-3 col-md-4 col-xs-6">
               <div class="client-logo">
-                <img src="<?= base_url() ?>/uploads/client_img/<?= $c->image; ?>" class="img-fluid" alt="">
+                <img src="<?= base_url() ?>/uploads/client_img/<?= $c->image_client; ?>" class="img-fluid" alt="">
               </div>
             </div>
           <?php } ?>

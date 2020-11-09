@@ -83,8 +83,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="old_pass">Password Lama</label>
-                                            <input class="form-control <?php echo form_error('old_pass') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="" />
+                                            <label for="password">Password Lama</label>
+                                            <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="" />
                                             <input type="hidden" name="old_pass" value="<?php echo $user->password ?>" />
                                             <div class="invalid-feedback">
                                                 <?php echo form_error('old_pass') ?>
@@ -119,7 +119,7 @@
                                                 <input type="hidden" name="old_image" value="<?php echo $user->image_users ?>" />
                                             </div>
                                             <div class="invalid-feedback">
-                                                <?php echo form_error('image_users') ?>
+                                                <?php echo form_error('image') ?>
                                             </div>
 
                                         </div>

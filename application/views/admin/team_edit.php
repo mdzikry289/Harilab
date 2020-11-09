@@ -85,6 +85,19 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="id_user">Level User</label>
+                                    <select class="form-control <?php echo form_error('id_user') ? 'is-invalid' : '' ?>" name="id_user" placeholder="">
+                                    <option value="<?php echo $team->id_user ?>"><?php echo $team->level ?></option>
+                                        <?php foreach ($user as $u) : ?>
+                                            <option value="<?php echo $u->id_user ?>"><?php echo $u->level ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('id_user') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="instagram">Instagram</label>
                                     <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="text" name="instagram" placeholder="" value="<?php echo $team->instagram ?>" />
                                     <div class="invalid-feedback">

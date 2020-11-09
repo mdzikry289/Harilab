@@ -9,6 +9,7 @@ class Proyek_model extends CI_Model
     public $url;
     public $id_kategori;
     public $id_client;
+    public $id_anggota;
     public $image_proyek = "default.jpg";
 
     public function rules()
@@ -60,6 +61,7 @@ class Proyek_model extends CI_Model
     {
         $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_proyek.id_kategori', 'left');
         $this->db->join('tb_client', 'tb_client.id_client = tb_proyek.id_client', 'left');
+        $this->db->join('tb_team', 'tb_team.id_anggota = tb_proyek.id_anggota', 'left');
         return $this->db->get_where($this->_table, ["id_proyek" => $id])->row();
     }
 
@@ -78,8 +80,9 @@ class Proyek_model extends CI_Model
         $post = $this->input->post();
         $this->nama_proyek = $post["nama_proyek"];
         $this->url = $post["url"];
-        $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_proyek.id_kategori', 'left');
         $this->id_kategori = $post["id_kategori"];
+        $this->id_client = $post["id_client"];
+        $this->id_anggota = $post["id_anggota"];
         $this->image_proyek = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
@@ -92,6 +95,7 @@ class Proyek_model extends CI_Model
         $this->url = $post["url"];
         $this->id_kategori = $post["id_kategori"];
         $this->id_client = $post["id_client"];
+        $this->id_anggota = $post["id_anggota"];
         if (!empty($_FILES["image"]["name"])) {
             $this->image_proyek = $this->_uploadImage();
         } else {

@@ -7,6 +7,7 @@ class Team_model extends CI_Model
     public $id_anggota;
     public $nama_anggota;
     public $id_jabatan;
+    public $id_user;
     public $instagram;
     public $twitter;
     public $fb;
@@ -26,12 +27,15 @@ class Team_model extends CI_Model
 
     public function getAll()
     {
+        $this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_team.id_jabatan', 'left');
+        $this->db->join('tb_users', 'tb_users.id_user = tb_team.id_user', 'left');
         return $this->db->get($this->_table)->result();
     }
 
     public function getById($id_anggota)
     {
         $this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_team.id_jabatan', 'left');
+        $this->db->join('tb_users', 'tb_users.id_user = tb_team.id_user', 'left');
         return $this->db->get_where($this->_table, ["id_anggota" => $id_anggota])->row();
     }
 
@@ -50,6 +54,7 @@ class Team_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_team');
         $this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_team.id_jabatan', 'left');
+        $this->db->join('tb_users', 'tb_users.id_user = tb_team.id_user', 'left');
         $query = $this->db->get();
         return $query->result();
     }
@@ -58,7 +63,8 @@ class Team_model extends CI_Model
     {
         $post = $this->input->post();
         $this->nama_anggota = $post["nama_anggota"];
-        $this->jabatan = $post["jabatan"];
+        $this->id_user = $post["id_user"];
+        $this->id_jabatan = $post["id_jabatan"];
         if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
         } else {
@@ -89,6 +95,7 @@ class Team_model extends CI_Model
         $this->id_anggota = $post["id_anggota"];
         $this->nama_anggota = $post["nama_anggota"];
         $this->id_jabatan = $post["id_jabatan"];
+        $this->id_user = $post["id_user"];
         if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
         } else {

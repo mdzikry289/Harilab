@@ -30,78 +30,87 @@
 
         <!-- Sidebar -->
 
-            <?php $this->load->view('admin/_partials/sidebar_container') ?>
-            <!-- End of Sidebar -->
+        <?php $this->load->view('admin/_partials/sidebar_container') ?>
+        <!-- End of Sidebar -->
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Main Content -->
-                <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-                    <!-- Topbar -->
-                    <?php $this->load->view('admin/_partials/navbar')?>
-                    <!-- End of Topbar -->
+                <!-- Topbar -->
+                <?php $this->load->view('admin/_partials/navbar') ?>
+                <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <!-- <h1 class="h3 mb-2 text-gray-800">Data </h1> -->
-                        <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
+                    <!-- Page Heading -->
+                    <!-- <h1 class="h3 mb-2 text-gray-800">Data </h1> -->
+                    <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header">
-                                <a href="<?php echo site_url('admin/team/add') ?>"><i class="fas fa-plus"></i> Tambah Data Anggota Team</a>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <a href="<?php echo site_url('admin/team/add') ?>"><i class="fas fa-plus"></i> Tambah Data Anggota Team</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Anggota</th>
+                                            <th>Jabatan</th>
+                                            <th>Level User</th>
+                                            <th>Foto</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($team as $t) : ?>
                                             <tr>
-                                                <th>Nama Anggota</th>
-                                                <th>Jabatan</th>
-                                                <th>Foto</th>
-                                                <th>Aksi</th>
+                                                <td width="250">
+                                                    <?php echo $t->nama_anggota ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $t->nama_jabatan ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $t->level ?>
+                                                </td>
+                                                <td>
+                                                    <img src="<?= base_url('uploads/team_img/' . $t->image_team) ?>" width="64">
+                                                </td>
+                                                <td width="250">
+                                                    <?php if ($this->session->userdata('user_id') != '1') : ?>
+                                                        <button class="btn btn-small" disabled><i class="fas fa-edit"></i> Edit</a></button>
+                                                        <button class="btn btn-small" disabled><i class="fas fa-trash"></i> Hapus</a></button>
+                                                    <?php else : ?>
+                                                        <a href="<?php echo site_url('admin/team/edit/' . $t->id_anggota) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                                        <a onclick="deleteConfirm('<?php echo site_url('admin/team/delete/' . $t->id_anggota) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                    <?php endif; ?>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($team as $a) : ?>
-                                                <tr>
-                                                    <td width="250">
-                                                        <?php echo $a->nama_anggota ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $a->nama_jabatan ?>
-                                                    </td>
-                                                    <td>
-                                                        <img src="<?= base_url('uploads/team_img/'.$a->image_team) ?>" width="64">
-                                                    </td>
-                                                    <td width="250">
-                                                        <a href="<?php echo site_url('admin/team/edit/' . $a->id_anggota) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                                                        <a onclick="deleteConfirm('<?php echo site_url('admin/team/delete/' . $a->id_anggota) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
                     </div>
-                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <?php $this->load->view('admin/_partials/footer')?>
-                <!-- End of Footer -->
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php $this->load->view('admin/_partials/footer') ?>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -113,25 +122,25 @@
 
     <!-- Logout Modal-->
     <?php $this->load->view("admin/_partials/logout_modal") ?>
-    
+
     <!-- Logout Delete Confirmation-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
-      </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url() ?>assets-backend/vendor/jquery/jquery.min.js"></script>
@@ -150,11 +159,11 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url() ?>assets-backend/js/demo/datatables-demo.js"></script>
     <script>
-function deleteConfirm(url){
-	$('#btn-delete').attr('href', url);
-	$('#deleteModal').modal();
-}
-</script>
+        function deleteConfirm(url) {
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        }
+    </script>
 
 </body>
 

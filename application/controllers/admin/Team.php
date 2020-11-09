@@ -10,6 +10,7 @@ class Team extends CI_Controller {
         $this->load->model("admin/team_model");
         $this->load->model("login_model");
         $this->load->model("admin/jabatan_model");
+        $this->load->model("admin/user_model");
         $this->load->library('form_validation');
     }
 
@@ -27,14 +28,18 @@ class Team extends CI_Controller {
     public function add()
     {
         $team = $this->team_model;
+        $jabatan = $this->jabatan_model;
+        $user = $this->user_model;
         $validation = $this->form_validation;
         $validation->set_rules($team->rules());
         if ($validation->run()) {
             $team->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
-        $this->load->view("admin/team_add");
+        $data["team"] = $team->getAll();
+        $data["jabatan"] = $jabatan->getAll();
+        $data["user"] = $user->getAll();
+        $this->load->view("admin/team_add", $data);
     }
 
     public function edit($id_team = null)
@@ -43,6 +48,7 @@ class Team extends CI_Controller {
        
         $team = $this->team_model;
         $jabatan = $this->jabatan_model;
+        $user = $this->user_model;
         $validation = $this->form_validation;
         $validation->set_rules($team->rules());
 
@@ -53,7 +59,7 @@ class Team extends CI_Controller {
 
         $data["team"] = $team->getById($id_team);
         $data["jabatan"] = $jabatan->getAll();
-
+        $data["user"] = $user->getAll();
         if (!$data["team"]) show_404();
         
         $this->load->view("admin/team_edit", $data);

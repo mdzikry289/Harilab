@@ -19,6 +19,7 @@ class Users extends CI_Controller
             $data["user"] = $this->user_model->getAll();
             $this->load->view("admin/list_user", $data);
         } else{
+            //jika tidak ada session maka redirect ke halaman login
             redirect("login");
         }
     }

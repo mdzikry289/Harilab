@@ -30,128 +30,136 @@
 
         <!-- Sidebar -->
 
-            <?php $this->load->view('admin/_partials/sidebar_container') ?>
-            <!-- End of Sidebar -->
+        <?php $this->load->view('admin/_partials/sidebar_container') ?>
+        <!-- End of Sidebar -->
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Main Content -->
-                <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-                    <!-- Topbar -->
-                    <?php $this->load->view('admin/_partials/navbar') ?>
-                    <!-- End of Topbar -->
+                <!-- Topbar -->
+                <?php $this->load->view('admin/_partials/navbar') ?>
+                <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-                        <?php if ($this->session->flashdata('success')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?php echo $this->session->flashdata('success'); ?>
-                            </div>
-                        <?php endif; ?>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <?php if ($this->session->flashdata('success')) : ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $this->session->flashdata('success'); ?>
+                        </div>
+                    <?php endif; ?>
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Tambah Data Anggota</h1>
-                        <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tambah Data Anggota</h1>
+                    <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header">
-                                <a href="<?php echo site_url('admin/team') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
-                            </div>
-                            <div class="card-body">
-                                <form action="<?php base_url('admin/team/add') ?>" method="POST" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <label for="nama_anggota">Nama Anggota</label>
-                                        <input class="form-control <?php echo form_error('nama_anggota') ? 'is-invalid' : '' ?>" type="text" name="nama_anggota" placeholder="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('nama_anggota') ?>
-                                        </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <a href="<?php echo site_url('admin/team') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
+                        </div>
+                        <div class="card-body">
+                            <form action="<?php base_url('admin/team/add') ?>" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="nama_anggota">Nama Anggota</label>
+                                    <input class="form-control <?php echo form_error('nama_anggota') ? 'is-invalid' : '' ?>" type="text" name="nama_anggota" placeholder="" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('nama_anggota') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="id_jabatan">Jabatan</label>
+                                    <select class="form-control <?php echo form_error('id_jabatan') ? 'is-invalid' : '' ?>" name="id_jabatan" placeholder="">
+                                        <?php foreach ($jabatan as $j) : ?>
+                                            <option value="<?php echo $j->id_jabatan ?>"><?php echo $j->nama_jabatan ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('category') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="id_user">Level User</label>
+                                    <select class="form-control <?php echo form_error('id_user') ? 'is-invalid' : '' ?>" name="id_user" placeholder="">
+                                        <?php foreach ($user as $u) : ?>
+                                            <option value="<?php echo $u->id_user ?>"><?php echo $u->level ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('id_user') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="instagram">Instagram</label>
+                                    <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="url" name="instagram" placeholder="" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('instagram') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="twitter">Twitter</label>
+                                    <input class="form-control <?php echo form_error('twitter') ? 'is-invalid' : '' ?>" type="url" name="twitter" placeholder="" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('twitter') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="fb">Facebook</label>
+                                    <input class="form-control <?php echo form_error('fb') ? 'is-invalid' : '' ?>" type="url" name="fb" placeholder="" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('fb') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn</label>
+                                    <input class="form-control <?php echo form_error('linkedin') ? 'is-invalid' : '' ?>" type="url" name="linkedin" placeholder="" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('linkedin') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="image_team">Gambar Thumbnail</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input <?php echo form_error('image_team') ? 'is-invalid' : '' ?>" id="customFile" name="image_team">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('image_team') ?>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="jabatan">Jabatan</label>
-                                        <select class="form-control <?php echo form_error('jabatan') ? 'is-invalid' : '' ?>" name="jabatan" placeholder="">
-                                            <option value="Direktur">Direktur</option>
-                                            <option value="Audio Visual">Audio Visual</option>
-                                            <option value="Video Editor">Video Editor</option>
-                                            <option value="Web Programmer">Web Programmer</option>
-                                            <option value="Konsultan Pertanian">Konsultan Pertanian</option>
-                                            <option value="Radio Promotion">Radio Promotion</option>
-                                            <option value="Supervisi">Supervisi</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('category') ?>
-                                        </div>
-                                    </div>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="instagram">Instagram</label>
-                                        <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="url" name="instagram" placeholder="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('instagram') ?>
-                                        </div>
-                                    </div>
+                                <input class="btn btn-success" type="submit" name="btn" value="Save" />
+                            </form>
 
-                                    <div class="form-group">
-                                        <label for="twitter">Twitter</label>
-                                        <input class="form-control <?php echo form_error('twitter') ? 'is-invalid' : '' ?>" type="url" name="twitter" placeholder="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('twitter') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="fb">Facebook</label>
-                                        <input class="form-control <?php echo form_error('fb') ? 'is-invalid' : '' ?>" type="url" name="fb" placeholder="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('fb') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="linkedin">LinkedIn</label>
-                                        <input class="form-control <?php echo form_error('linkedin') ? 'is-invalid' : '' ?>" type="url" name="linkedin" placeholder="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('linkedin') ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="image_team">Gambar Thumbnail</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?php echo form_error('image_team') ? 'is-invalid' : '' ?>" id="customFile" name="image_team">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('image_team') ?>
-                                        </div>
-
-                                    </div>
-
-                                    <input class="btn btn-success" type="submit" name="btn" value="Save" />
-                                </form>
-
-                            </div>
-
-                            <!-- <div class="card-footer small text-muted">
-                                * Diperlukan
-                            </div> -->
                         </div>
 
+                        <!-- <div class="card-footer small text-muted">
+                                * Diperlukan
+                            </div> -->
                     </div>
-                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <?php $this->load->view('admin/_partials/footer')?>
-                <!-- End of Footer -->
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php $this->load->view('admin/_partials/footer') ?>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

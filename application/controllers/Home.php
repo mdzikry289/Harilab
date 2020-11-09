@@ -25,6 +25,7 @@ class Home extends CI_Controller {
 		$this->load->model('admin/team_model');
 		$this->load->model('admin/client_model');
 		$this->load->model('admin/proyek_model');
+		$this->load->model('admin/category_model');
 	}
 
 	public function index()
@@ -32,6 +33,7 @@ class Home extends CI_Controller {
 		$data["team"] = $this->team_model->getAll();
 		$data["client"] = $this->client_model->getAll();
 		$data["proyek"] = $this->proyek_model->getAll();
+		$data["kategori"] = $this->category_model->getAll();
 		$this->load->view('home', $data);
 	}
 }

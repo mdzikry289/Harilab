@@ -62,6 +62,7 @@
                         </div>
                         <div class="card-body">
                             <form action="<?php base_url('admin/proyek/add') ?>" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="id_proyek">
                                 <div class="form-group">
                                     <label for="nama_proyek">Nama Proyek</label>
                                     <input class="form-control <?php echo form_error('nama_proyek') ? 'is-invalid' : '' ?>" type="text" name="nama_proyek" placeholder="" />
@@ -79,6 +80,30 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="id_client">Client</label>
+                                    <select class="form-control <?php echo form_error('id_client') ? 'is-invalid' : '' ?>" name="id_client" placeholder="">
+                                        <?php foreach ($client as $c) : ?>
+                                            <option value="<?php echo $c->id_client ?>"><?php echo $c->nama_client ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('id_client') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="id_anggota">Penanggungjawab Proyek</label>
+                                    <select class="form-control <?php echo form_error('id_anggota') ? 'is-invalid' : '' ?>" name="id_anggota" placeholder="">
+                                        <?php foreach ($anggota as $a) : ?>
+                                            <option value="<?php echo $a->id_anggota ?>"><?php echo $a->nama_anggota ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('id_client') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="image_proyek">Gambar Thumbnail</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input <?php echo form_error('image_proyek') ? 'is-invalid' : '' ?>" id="customFile" name="image_proyek">
@@ -91,10 +116,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="category">Kategori</label>
-                                    <select class="form-control <?php echo form_error('category') ? 'is-invalid' : '' ?>" name="category" placeholder="">
+                                    <label for="id_kategori">Kategori</label>
+                                    <select class="form-control <?php echo form_error('category') ? 'is-invalid' : '' ?>" name="id_kategori" placeholder="">
                                         <?php foreach ($kategori as $k) : ?>
-                                            <option value="<?= $k->nama_kategori; ?>"><?= $k->nama_kategori; ?></option>
+                                            <option value="<?= $k->id_kategori; ?>"><?= $k->nama_kategori; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <div class="invalid-feedback">

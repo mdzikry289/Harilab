@@ -9,7 +9,7 @@ class User_model extends CI_Model
     public $username;
     public $password;
     public $level;
-    public $image = "default.jpg";
+    public $image_users = "default.jpg";
 
     public function rules()
     {
@@ -23,6 +23,12 @@ class User_model extends CI_Model
             [
                 'field' => 'username',
                 'label' => 'Username',
+                'rules' => 'required'
+            ],
+
+            [
+                'field' => 'password',
+                'label' => 'Password',
                 'rules' => 'required'
             ],
 
@@ -46,7 +52,7 @@ class User_model extends CI_Model
         $this->username = $post["username"];
         $this->password = $post["password"];
         $this->level = $post["level"];
-        $this->image = $this->_uploadImage();
+        $this->image_users = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -63,9 +69,9 @@ class User_model extends CI_Model
         }
         $this->level = $post["level"];
         if (!empty($_FILES["image"]["name"])) {
-            $this->image = $this->_uploadImage();
+            $this->image_users = $this->_uploadImage();
         } else {
-            $this->image = $post["old_image"];
+            $this->image_users = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_user' => $post['id_user']));
     }
@@ -113,8 +119,8 @@ class User_model extends CI_Model
     {
 
         $user = $this->getById($id_user);
-        if ($user->image != "default.jpg") {
-            $filename = explode(".", $user->image)[0];
+        if ($user->image_users != "default.jpg") {
+            $filename = explode(".", $user->image_users)[0];
             return array_map('unlink', glob(FCPATH . "uploads/user_img/$filename.*"));
             return array_map('unlink', glob(FCPATH . "uploads/user_img/thumbs/$filename.*"));
         }

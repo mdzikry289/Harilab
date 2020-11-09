@@ -90,6 +90,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="id_anggota">Penanggungjawab Proyek</label>
+                                    <select class="form-control <?php echo form_error('id_anggota') ? 'is-invalid' : '' ?>" name="id_anggota" placeholder="">
+                                    <option value="<?php echo $proyek->id_anggota ?>"><?php echo $proyek->nama_anggota ?></option>
+                                        <?php foreach ($team as $t) : ?>
+                                            <option value="<?php echo $t->id_anggota ?>"><?php echo $t->nama_anggota ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('id_client') ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="image_proyek">Gambar Thumbnail</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input <?php echo form_error('image_proyek') ? 'is-invalid' : '' ?>" id="customFile" name="image_proyek">

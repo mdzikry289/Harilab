@@ -7,7 +7,6 @@ class Blog extends CI_Controller{
     }
  
     function index(){
-        // memanggil sebuah bernama blog_view 
         $this->load->view('list_blog');
     }
 } 

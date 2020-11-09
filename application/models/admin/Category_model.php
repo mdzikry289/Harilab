@@ -6,7 +6,7 @@ class Category_model extends CI_Model
 
     public $id_kategori;
     public $nama_kategori;
-    public $image = "default.jpg";
+    public $image_kategori = "default.jpg";
 
     public function rules()
     {
@@ -34,7 +34,7 @@ class Category_model extends CI_Model
     {
         $post = $this->input->post();
         $this->nama_kategori = $post["nama_kategori"];
-        $this->image = $this->_uploadImage();
+        $this->image_kategori = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -44,9 +44,9 @@ class Category_model extends CI_Model
         $this->id_kategori = $post["id_kategori"];
         $this->nama_kategori = $post["nama_kategori"];
         if (!empty($_FILES["image"]["name"])) {
-            $this->image = $this->_uploadImage();
+            $this->image_kategori = $this->_uploadImage();
         } else {
-            $this->image = $post["old_image"];
+            $this->image_kategori = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_kategori' => $post['id_kategori']));
     }
@@ -94,8 +94,8 @@ class Category_model extends CI_Model
     {
 
         $cat = $this->getById($id);
-        if ($cat->image != "default.jpg") {
-            $filename = explode(".", $cat->image)[0];
+        if ($cat->image_kategori != "default.jpg") {
+            $filename = explode(".", $cat->image_kategori)[0];
             return array_map('unlink', glob(FCPATH . "uploads/kategori_img/$filename.*"));
             return array_map('unlink', glob(FCPATH . "uploads/kategori_img/thumbs/$filename.*"));
         }

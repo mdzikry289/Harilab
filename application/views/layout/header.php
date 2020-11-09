@@ -14,7 +14,7 @@
           <li><a href="#teams">Our Team</a></li>
           <li><a href="#clients">Clients</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#highlights">Highlights</a></li>
+          <!-- <li><a href="#highlights">Highlights</a></li> -->
           <!-- <li class="buy-tickets"><a href="#buy-tickets">Member Login</a></li> -->
         </ul>
       </nav><!-- #nav-menu-container -->
