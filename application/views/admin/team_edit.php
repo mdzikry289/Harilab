@@ -137,7 +137,7 @@
                                         <input type="hidden" name="old_image" value="<?php echo $team->image_team ?>" />
                                     </div>
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('image') ?>
+                                        <?php echo form_error('image_team') ?>
                                     </div>
 
                                 </div>

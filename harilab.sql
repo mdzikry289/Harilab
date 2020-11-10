@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2020 at 09:36 AM
+-- Generation Time: Nov 10, 2020 at 05:15 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -47,7 +47,8 @@ INSERT INTO `tb_client` (`id_client`, `nama_client`, `image_client`) VALUES
 (7, 'Ghea & Ghia', 'default.jpg'),
 (8, 'Kiki DJ', 'default.jpg'),
 (9, 'Neal Band', 'default.jpg'),
-(13, 'Aris & Putri', 'Aris_Putri.jpg');
+(13, 'Aris & Putri', 'Aris_Putri.jpg'),
+(15, 'Dygta', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,7 @@ INSERT INTO `tb_proyek` (`id_proyek`, `id_client`, `id_anggota`, `id_kategori`, 
 (6, 3, 6, 4, 'Konser Amal Kado Cinta Untuk Mereka', 'https://www.youtube.com/watch?v=voyF-bpOzG0', '5f550024af76d.jpg'),
 (7, 7, 7, 3, 'Ghea & Ghia - Lebaran 2020 (Official Music Video)', 'https://www.youtube.com/watch?v=Ff2E8SYSMsE', '5f550129ea0b7.jpg'),
 (8, 8, 8, 3, 'Kiki DJ Jatuh Cinta (HD official video)', 'https://www.youtube.com/watch?v=cL-YGz6AcW4', '5f55024f742ee.jpg'),
-(9, 4, 9, 3, 'Dygta - Tersiksa Rindu - Official Lyrics Video - Ost. Samudra Cinta', 'https://www.youtube.com/watch?v=hROuAI0TBCo', '5f5504a9a29f1.jpg'),
+(9, 15, 9, 3, 'Dygta - Tersiksa Rindu - Official Lyrics Video - Ost. Samudra Cinta', 'https://www.youtube.com/watch?v=hROuAI0TBCo', '5f5504a9a29f1.jpg'),
 (10, 4, 1, 3, 'Tegar - Tersiksa Rindu (Dygta Cover)', 'https://www.youtube.com/watch?v=k2nYqXGrv8s', '5f5505110c500.jpg'),
 (11, 1, 2, 7, 'Telkom Campus Jakarta, Kampus Millennial berbasis ICT!', 'https://www.youtube.com/watch?v=PDXgWUb8_jY', '5f55347746dfc.jpg');
 
@@ -162,7 +163,8 @@ INSERT INTO `tb_team` (`id_anggota`, `id_user`, `nama_anggota`, `id_jabatan`, `i
 (6, 3, 'Sonny', 4, 'https://www.instagram.com/sovan.sundawa/', '#', '#', '#', '5f5590adea810.jpg'),
 (7, 3, 'Irwan Butonk', 3, 'https://www.instagram.com/irwan_butonk/', '#', '#', '#', '5f5593f45c5e6.jpg'),
 (8, 3, 'Rachmat Al Fatir', 3, 'https://www.instagram.com/kowy1933/', '#', '#', '#', '5f559c363b266.jpg'),
-(9, 3, 'Indra Budiman', 5, 'https://www.instagram.com/indrakameswara73/', '#', '#', '#', '5f55a73f35d3e.jpg');
+(9, 3, 'Indra Budiman', 5, 'https://www.instagram.com/indrakameswara73/', '#', '#', '#', '5f55a73f35d3e.jpg'),
+(17, 3, 'Raden Gilvia Adinda Putri', 3, '#', '#', '#', '#', '17.jpg');
 
 -- --------------------------------------------------------
 
@@ -174,7 +176,7 @@ CREATE TABLE `tb_users` (
   `id_user` int(11) NOT NULL,
   `nama_user` varchar(150) NOT NULL,
   `username` varchar(150) NOT NULL,
-  `password` varchar(150) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `level` enum('SuperAdmin','Admin','Staff') NOT NULL,
   `image_users` varchar(255) NOT NULL DEFAULT 'default.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -184,9 +186,9 @@ CREATE TABLE `tb_users` (
 --
 
 INSERT INTO `tb_users` (`id_user`, `nama_user`, `username`, `password`, `level`, `image_users`) VALUES
-(1, 'Administrator', 'admin', 'admin', 'SuperAdmin', 'default.jpg'),
-(2, 'Direktur Harilab', 'Direktur Harilab', '', 'Admin', 'default.jpg'),
-(3, 'Staff Harilab', 'staff', 'staff', 'Staff', 'default.jpg');
+(1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'SuperAdmin', 'default.jpg'),
+(2, 'Direktur Harilab', 'direktur', '4fbfd324f5ffcdff5dbf6f019b02eca8', 'Admin', 'default.jpg'),
+(3, 'Staff Harilab', 'staff', '1253208465b1efa876f982d8a9e73eef', 'Staff', 'default.jpg');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +243,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_client`
 --
 ALTER TABLE `tb_client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`
@@ -253,25 +255,25 @@ ALTER TABLE `tb_jabatan`
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_proyek`
 --
 ALTER TABLE `tb_proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_team`
 --
 ALTER TABLE `tb_team`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

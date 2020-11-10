@@ -85,9 +85,8 @@
                                 <div class="form-group">
                                     <label for="id_user">Level User</label>
                                     <select class="form-control <?php echo form_error('id_user') ? 'is-invalid' : '' ?>" name="id_user" placeholder="">
-                                        <?php foreach ($user as $u) : ?>
-                                            <option value="<?php echo $u->id_user ?>"><?php echo $u->level ?></option>
-                                        <?php endforeach; ?>
+                                        <option value="2">Admin</option>
+                                        <option value="3">Staff</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?php echo form_error('id_user') ?>

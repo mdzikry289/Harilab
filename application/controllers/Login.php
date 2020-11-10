@@ -39,7 +39,7 @@ class Login extends CI_Controller {
                 $password = $this->input->post("password", TRUE);
 
                 //checking data via model
-                $checking = $this->login_model->check_login('tb_users', array('username' => $username), array('password' => $password));
+                $checking = $this->login_model->check_login('tb_users', array('username' => $username), array('password' => md5($password)));
 
                 //jika ditemukan, maka create session
                 if ($checking != FALSE) {

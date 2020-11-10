@@ -63,7 +63,6 @@ class Team_model extends CI_Model
     {
         $post = $this->input->post();
         $this->nama_anggota = $post["nama_anggota"];
-        $this->id_user = $post["id_user"];
         $this->id_jabatan = $post["id_jabatan"];
         if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
@@ -116,7 +115,7 @@ class Team_model extends CI_Model
         } else {
             $this->linkedin = "#";
         }
-        if (!empty($_FILES["image"]["name"])) {
+        if (!empty($_FILES["image_team"]["name"])) {
             $this->image_team = $this->_uploadImage();
         } else {
             $this->image_team = $post["old_image"];
@@ -134,7 +133,7 @@ class Team_model extends CI_Model
     {
         $config['upload_path']          = './uploads/team_img/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->id_anggota;
+        $config['file_name']            = $this->nama_anggota;
         $config['overwrite']            = true;
         $config['max_size']             = 15375; // 15MB
         // $config['max_width']            = 1024;
@@ -142,7 +141,7 @@ class Team_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('image')) {
+        if ($this->upload->do_upload('image_team')) {
             $gbr = $this->upload->data();
             //Compress Image
             $config['image_library'] = 'gd2';

@@ -45,12 +45,22 @@ class User_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_user" => $id_user])->row();
     }
 
+    public function hitungJumlahUser()
+    {
+        $query = $this->db->get('tb_users');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function save()
     {
         $post = $this->input->post();
         $this->nama_user = $post["nama_user"];
         $this->username = $post["username"];
-        $this->password = $post["password"];
+        $this->password = md5($post["password"]);
         $this->level = $post["level"];
         $this->image_users = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
@@ -62,13 +72,9 @@ class User_model extends CI_Model
         $this->id_user = $post["id_user"];
         $this->nama_user = $post["nama_user"];
         $this->username = $post["username"];
-        if ($this->input->post['password'] != $this->input->post['old_pass']) {
-            $this->form_validation->set_message('required', 'Password lama tidak sama');
-        } else {
-            $this->password = $post["new_pass"];
-        }
+        $this->password = md5($post["password"]);
         $this->level = $post["level"];
-        if (!empty($_FILES["image"]["name"])) {
+        if (!empty($_FILES["image_users"]["name"])) {
             $this->image_users = $this->_uploadImage();
         } else {
             $this->image_users = $post["old_image"];
@@ -86,7 +92,7 @@ class User_model extends CI_Model
     {
         $config['upload_path']          = './uploads/user_img/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->id_user;
+        $config['file_name']            = $this->username;
         $config['overwrite']            = true;
         $config['max_size']             = 15375; // 15MB
         // $config['max_width']            = 1024;
@@ -94,7 +100,7 @@ class User_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('image')) {
+        if ($this->upload->do_upload('image_users')) {
             $gbr = $this->upload->data();
                 //Compress Image
                 $config['image_library']='gd2';

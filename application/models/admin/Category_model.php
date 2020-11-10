@@ -43,7 +43,7 @@ class Category_model extends CI_Model
         $post = $this->input->post();
         $this->id_kategori = $post["id_kategori"];
         $this->nama_kategori = $post["nama_kategori"];
-        if (!empty($_FILES["image"]["name"])) {
+        if (!empty($_FILES["image_kategori"]["name"])) {
             $this->image_kategori = $this->_uploadImage();
         } else {
             $this->image_kategori = $post["old_image"];
@@ -69,7 +69,7 @@ class Category_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('image')) {
+        if ($this->upload->do_upload('image_kategori')) {
             $gbr = $this->upload->data();
                 //Compress Image
                 $config['image_library']='gd2';

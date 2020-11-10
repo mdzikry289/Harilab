@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label for="id_anggota">Penanggungjawab Proyek</label>
                                     <select class="form-control <?php echo form_error('id_anggota') ? 'is-invalid' : '' ?>" name="id_anggota" placeholder="">
-                                        <?php foreach ($anggota as $a) : ?>
+                                        <?php foreach ($team as $a) : ?>
                                             <option value="<?php echo $a->id_anggota ?>"><?php echo $a->nama_anggota ?></option>
                                         <?php endforeach; ?>
                                     </select>

@@ -76,24 +76,15 @@
 
                                         <div class="form-group">
                                             <label for="username">Username</label>
-                                            <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="" value="<?= $user->nama_user ?>" />
+                                            <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="" value="<?= $user->username ?>" />
                                             <div class="invalid-feedback">
                                                 <?php echo form_error('username') ?>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="password">Password Lama</label>
+                                            <label for="password">Password Baru</label>
                                             <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="" />
-                                            <input type="hidden" name="old_pass" value="<?php echo $user->password ?>" />
-                                            <div class="invalid-feedback">
-                                                <?php echo form_error('old_pass') ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="new_pass">Password Baru</label>
-                                            <input class="form-control <?php echo form_error('new_pass') ? 'is-invalid' : '' ?>" type="password" name="new_pass" placeholder="" />
                                             <div class="invalid-feedback">
                                                 <?php echo form_error('password') ?>
                                             </div>

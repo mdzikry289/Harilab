@@ -42,7 +42,7 @@ class Proyek extends CI_Controller
 
         $data["kategori"] = $this->category_model->getAll();
         $data["client"] = $client->getAll();
-        $data["team"] = $team->getAll();
+        $data["team"] = $team->getByJoin();
         $this->load->view("admin/proyek_add", $data);
     }
 

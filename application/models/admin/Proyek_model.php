@@ -96,7 +96,7 @@ class Proyek_model extends CI_Model
         $this->id_kategori = $post["id_kategori"];
         $this->id_client = $post["id_client"];
         $this->id_anggota = $post["id_anggota"];
-        if (!empty($_FILES["image"]["name"])) {
+        if (!empty($_FILES["image_proyek"]["name"])) {
             $this->image_proyek = $this->_uploadImage();
         } else {
             $this->image_proyek = $post["old_image"];
@@ -114,7 +114,7 @@ class Proyek_model extends CI_Model
     {
         $config['upload_path']          = './uploads/proyek_img/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->id_proyek;
+        $config['file_name']            = $this->nama_proyek;
         $config['overwrite']            = true;
         $config['max_size']             = 15375; // 15MB
         // $config['max_width']            = 1024;
@@ -122,7 +122,7 @@ class Proyek_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('image')) {
+        if ($this->upload->do_upload('image_proyek')) {
             $gbr = $this->upload->data();
             //Compress Image
             $config['image_library'] = 'gd2';
@@ -147,8 +147,8 @@ class Proyek_model extends CI_Model
     {
 
         $proyek = $this->getById($id_proyek);
-        if ($proyek->image != "default.jpg") {
-            $filename = explode(".", $proyek->image)[0];
+        if ($proyek->image_proyek != "default.jpg") {
+            $filename = explode(".", $proyek->image_proyek)[0];
             return array_map('unlink', glob(FCPATH . "uploads/proyek_img/$filename.*"));
             return array_map('unlink', glob(FCPATH . "uploads/proyek_img/thumbs/$filename.*"));
         }
