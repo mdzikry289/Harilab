@@ -15,7 +15,7 @@
   <!-- ======= Intro Section ======= -->
   <section id="intro">
     <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 class="mb-4 pb-0">We Crafting Idea<br><span>INTO</span> Reality</h1>
+      <h1 class="mb-4 pb-0">Harilab Production</h1>
       <!-- <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p> -->
       <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
       <a href="#about" class="about-btn scrollto">About The Event</a> -->
@@ -173,7 +173,7 @@
           <div class="col-md-4">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
+              <h3>Nomor HP</h3>
               <p><a href="tel:+6282116785996">+6282116785996 (Yagi)</a></p>
               <p><a href="tel:+6281214694401">+6281214694401 (Harilab)</a></p>
             </div>
@@ -183,13 +183,13 @@
             <div class="contact-email">
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:info@harilabproduction.com">info@harilabproduction.com</a></p>
             </div>
           </div>
 
         </div>
 
-        <div class="form">
+        <!-- <div class="form">
           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -216,7 +216,7 @@
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
-        </div>
+        </div> -->
 
       </div>
     </section><!-- End Contact Section -->
@@ -259,10 +259,11 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              JL. Cihanjuang Komp. Puri Budi Asri No K5, Cihanjuang, Kec. Parongpong <br>
+              JL. Cihanjuang Komp. Puri Budi Asri No K5, <br> 
+              Cihanjuang, Kec. Parongpong <br>
               Kabupaten Bandung Barat, Jawa Barat 40559<br>
               Indonesia <br>
-              <strong>Phone:</strong> 6282116785996 (Yagi)<br>
+              <strong>Nomor HP:</strong> 6282116785996 (Yagi)<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
 
