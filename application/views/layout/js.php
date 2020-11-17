@@ -1,5 +1,5 @@
-<!-- Vendor JS Files -->
-<script src="assets-frontend/vendor/jquery/jquery.min.js"></script>
+  <!-- Vendor JS Files -->
+  <script src="assets-frontend/vendor/jquery/jquery.min.js"></script>
   <script src="assets-frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets-frontend/vendor/jquery.easing/jquery.easing.min.js"></script>
   <script src="assets-frontend/vendor/php-email-form/validate.js"></script>

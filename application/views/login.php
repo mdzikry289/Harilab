@@ -25,7 +25,7 @@
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Please Login</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Harilab Login</h1>
                   </div>
                   <form class="user" method="POST" action="<?php echo base_url() ?>index.php/login">
                     <div class="form-group">

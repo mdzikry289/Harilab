@@ -19,5 +19,5 @@
   <link href="assets-frontend/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets-frontend/vendor/aos/aos.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Template Main CSS File -->
   <link href="assets-frontend/css/style.css" rel="stylesheet">

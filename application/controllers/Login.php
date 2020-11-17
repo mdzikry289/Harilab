@@ -50,7 +50,7 @@ class Login extends CI_Controller {
                             'user_name' => $apps->username,
                             'user_nama' => $apps->nama_user,
                             'level' => $apps->level,
-                            'image_users' => $apps->image_users
+                            'foto' => $apps->image_users
                         );
                         //set session userdata
                         $this->session->set_userdata($session_data);

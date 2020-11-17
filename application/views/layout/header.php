@@ -3,7 +3,7 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <h1><a href="#intro"></span></a></h1>
-        <!-- <a href="index.html" class="scrollto"><img src="assets/img/logo.png" alt="" title=""></a> -->
+        <!-- <a href="index.html" class="scrollto"><img src="assets-frontend/img/logo.png" alt="" title=""></a> -->
       </div>
 
       <nav id="nav-menu-container">

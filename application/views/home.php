@@ -16,11 +16,16 @@
   <section id="intro">
     <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
       <h1 class="mb-4 pb-0">Harilab Production</h1>
-      <!-- <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p> -->
+      <p class="mb-4 pb-0">
+      <?php foreach ($kategori as $k) { ?>
+        <a href="#"><?= $k->nama_kategori; ?></a> |
+      <?php } ?>
+      </p>
       <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
       <a href="#about" class="about-btn scrollto">About The Event</a> -->
     </div>
-  </section><!-- End Intro Section -->
+  </section>
+  <!-- End Intro Section -->
 
   <main id="main">
 
@@ -31,8 +36,9 @@
           <h2>About Us</h2>
         </div>
         <div class="section-header2">
-          <p>Harilab Production is a leading, high performance, innovative media creation enterprise based in Bandung.
-            We believe in providing a positive impact, creatively driven solutions in film, videography, multimedia, photography, social media, website development, and event management for our clients.</p>
+          <?php foreach ($settings as $s) : ?>
+          <p><?= $s->about_us; ?></p>
+          <?php endforeach; ?>
         </div>
       </div>
 
@@ -157,7 +163,6 @@
 
         <div class="section-header">
           <h2>Contact Us</h2>
-          <!-- <p>Nihil officia ut sint molestiae tenetur.</p> -->
         </div>
 
         <div class="row contact-info">
@@ -173,7 +178,7 @@
           <div class="col-md-4">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
-              <h3>Nomor HP</h3>
+              <h3>Phone</h3>
               <p><a href="tel:+6282116785996">+6282116785996 (Yagi)</a></p>
               <p><a href="tel:+6281214694401">+6281214694401 (Harilab)</a></p>
             </div>
