@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('admin/client_model');
         $this->load->model('admin/proyek_model');
         $this->load->model('admin/user_model');
+        $this->load->model('admin/settings_model');
     }
 
     public function index()
@@ -23,6 +24,7 @@ class Dashboard extends CI_Controller {
             $data["total_client"] = $this->client_model->hitungJumlahClient();
             $data["total_proyek"] = $this->proyek_model->hitungJumlahProyek();
             $data["total_users"] = $this->user_model->hitungJumlahUser();
+            $data["settings"] = $this->settings_model->getAll();
             $this->load->view('admin/dashboard', $data);
             // $this->load->view("admin/dashboard");
 

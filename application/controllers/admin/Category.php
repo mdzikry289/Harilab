@@ -9,6 +9,7 @@ class Category extends CI_Controller
         parent::__construct();
         //load model
         $this->load->model("admin/category_model");
+        $this->load->model("admin/settings_model");
         $this->load->model("login_model");
         $this->load->library('form_validation');
     }
@@ -18,6 +19,7 @@ class Category extends CI_Controller
         //cek session
         if ($this->login_model->logged_id()) {
             $data["category"] = $this->category_model->getAll();
+            $data["settings"] = $this->settings_model->getAll();
             $this->load->view("admin/list_kategori", $data);
         } else {
             //jika tidak ada session maka redirect ke halaman login

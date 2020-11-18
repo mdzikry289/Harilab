@@ -1,9 +1,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <?php foreach ($settings as $s) : ?>
-            <span>&copy;<?= $s->footer; ?></span>
-            <?php endforeach; ?>
+            <span>&copy;<?= $settings->footer; ?></span>
         </div>
     </div>
 </footer>

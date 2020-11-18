@@ -11,6 +11,7 @@ class Team extends CI_Controller {
         $this->load->model("login_model");
         $this->load->model("admin/jabatan_model");
         $this->load->model("admin/user_model");
+        $this->load->model("admin/settings_model");
         $this->load->library('form_validation');
     }
 
@@ -18,6 +19,7 @@ class Team extends CI_Controller {
     {
         if($this->login_model->logged_id()){
             $data["team"] = $this->team_model->getByJoin();
+            $data["settings"] = $this->settings_model->getAll();
             $this->load->view("admin/list_team", $data);
         } else {
             redirect("login");

@@ -13,6 +13,7 @@ class Proyek extends CI_Controller
         $this->load->model("admin/category_model");
         $this->load->model("admin/team_model");
         $this->load->model("admin/client_model");
+        $this->load->model("admin/settings_model");
         $this->load->library('form_validation');
     }
 
@@ -21,6 +22,7 @@ class Proyek extends CI_Controller
         //cek session
         if ($this->login_model->logged_id()) {
             $data["proyek"] = $this->proyek_model->getByJoin();
+            $data["settings"] = $this->settings_model->getAll();
             $this->load->view("admin/list_proyek", $data);
         } else {
             //jika tidak ada session maka redirect ke halaman login

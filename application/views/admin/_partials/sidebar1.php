@@ -1,12 +1,5 @@
 <!-- SuperAdmin Sidebar -->
 
-<!-- Nav Item - Blog -->
-<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'blog' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= site_url() ?>/admin/blog">
-        <i class="fas fa-fw fa-users"></i>
-        <span>Konten Blog</span></a>
-</li> -->
-
 <li class="nav-item <?php echo $this->uri->segment(2) == 'proyek' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= site_url() ?>admin/proyek">
         <i class="fas fa-fw fa-tasks"></i>
@@ -27,18 +20,11 @@
         <span>Kelola Client</span></a>
 </li>
 
-<li class="nav-item <?php echo $this->uri->segment(2) == 'contact_us' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= site_url() ?>admin/contact_us">
+<li class="nav-item <?php echo $this->uri->segment(2) == 'contact' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= site_url() ?>admin/contact">
         <i class="fas fa-fw fa-address-book"></i>
         <span>Kelola Contact Us</span></a>
 </li>
-
-<!-- Nav Item - Services -->
-<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'services' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= site_url() ?>/admin/services">
-        <i class="fas fa-fw fa-edit"></i>
-        <span>Konten Our Services</span></a>
-</li> -->
 
 <div class="sidebar-heading">
     Manajemen Sistem

@@ -10,6 +10,7 @@ class Users extends CI_Controller
         //load model
         $this->load->model("login_model");
         $this->load->model("admin/user_model");
+        $this->load->model("admin/settings_model");
         $this->load->library('form_validation');
     }
 
@@ -17,6 +18,7 @@ class Users extends CI_Controller
     {
         if ($this->login_model->logged_id()) {
             $data["user"] = $this->user_model->getAll();
+            $data["settings"] = $this->settings_model->getAll();
             $this->load->view("admin/list_user", $data);
         } else{
             //jika tidak ada session maka redirect ke halaman login

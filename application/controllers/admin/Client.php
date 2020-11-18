@@ -8,6 +8,7 @@ class Client extends CI_Controller {
         parent::__construct();
         //load model
         $this->load->model("admin/client_model");
+        $this->load->model("admin/settings_model");
         $this->load->model("login_model");
         $this->load->library('form_validation');
     }
@@ -16,6 +17,7 @@ class Client extends CI_Controller {
     {
         //cek session
         if($this->login_model->logged_id()){
+            $data["settings"] = $this->settings_model->getAll();
             $data["client"] = $this->client_model->getAll();
             $this->load->view("admin/list_client", $data);
         } else{

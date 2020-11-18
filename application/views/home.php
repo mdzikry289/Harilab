@@ -15,7 +15,9 @@
   <!-- ======= Intro Section ======= -->
   <section id="intro">
     <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 class="mb-4 pb-0">Harilab Production</h1>
+    <?php foreach ($settings as $s) :?>
+      <h1 class="mb-4 pb-0"><?= $s->judul_banner; ?></h1>
+    <?php endforeach; ?>
       <p class="mb-4 pb-0">
       <?php foreach ($kategori as $k) { ?>
         <a href="#"><?= $k->nama_kategori; ?></a> |
@@ -171,7 +173,9 @@
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>Address</h3>
-              <address>Cihanjuang, Komp. Puri Budi Asri No. K5</address>
+              <?php foreach ($contact as $ct) :?>
+              <address><?= $ct->alamat_short ?></address>
+              <?php endforeach; ?>
             </div>
           </div>
 
@@ -179,8 +183,9 @@
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>Phone</h3>
-              <p><a href="tel:+6282116785996">+6282116785996 (Yagi)</a></p>
-              <p><a href="tel:+6281214694401">+6281214694401 (Harilab)</a></p>
+              <?php foreach ($contact as $ct) :?>
+              <p><a href="tel:<?= $ct->no_tlp;?>"><?= $ct->no_tlp; ?></a></p>
+              <?php endforeach; ?>
             </div>
           </div>
 
@@ -188,7 +193,9 @@
             <div class="contact-email">
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@harilabproduction.com">info@harilabproduction.com</a></p>
+              <?php foreach ($contact as $ct) :?>
+              <p><a href="mailto:<?= $ct->email; ?>"><?= $ct->email; ?></a></p>
+              <?php endforeach; ?>
             </div>
           </div>
 
@@ -250,7 +257,7 @@
             </ul>
           </div> -->
 
-          <div class="col-lg-3 col-md-6 footer-links">
+          <!-- <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
@@ -259,27 +266,25 @@
               <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="<?= base_url('index.php/login') ?>">Site Login</a></li>
             </ul>
-          </div>
+          </div> -->
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
+            <?php foreach ($contact as $ct) :?>
             <p>
-              JL. Cihanjuang Komp. Puri Budi Asri No K5, <br> 
-              Cihanjuang, Kec. Parongpong <br>
-              Kabupaten Bandung Barat, Jawa Barat 40559<br>
-              Indonesia <br>
-              <strong>Nomor HP:</strong> 6282116785996 (Yagi)<br>
-              <strong>Email:</strong> info@example.com<br>
+              <?= $ct->alamat_long; ?><br>
+              <strong>Nomor HP:</strong> <?= $ct->no_tlp; ?><br>
+              <strong>Email:</strong> <?= $ct->email; ?><br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              <a target="_blank" rel="noopener noreferrer" href="<?= $ct->twitter ?>" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a target="_blank" rel="noopener noreferrer" href="<?= $ct->fb ?>" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a target="_blank" rel="noopener noreferrer" href="<?= $ct->instagram ?>" class="instagram"><i class="fa fa-instagram"></i></a>
+              <!-- <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> -->
             </div>
-
+            <?php endforeach; ?>
           </div>
 
         </div>
@@ -288,7 +293,9 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright 2006 - 2020 <strong>Harilab Production</strong>. All Rights Reserved
+      <?php foreach ($settings as $s) :?>
+        &copy; <?= $s->footer; ?>
+        <?php endforeach; ?>
       </div>
 
     </div>

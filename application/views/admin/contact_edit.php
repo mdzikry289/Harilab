@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Harilab - Settings</title>
+    <title>Harilab - Contact Us</title>
 
     <!-- Custom fonts for this template -->
     <link href="<?= base_url() ?>assets-backend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@
                         <?php endif; ?>
 
                         <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Settings</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Contact Us</h1>
 
                         <!-- DataTales -->
                         <div class="card shadow mb-4">
@@ -60,42 +60,65 @@
                                 <a href="<?php echo site_url('admin/settings') ?>"><i class="fas fa-arrow-left"></i> Back</a>
                             </div> -->
                             <div class="card-body">
-                                <form action="<?php base_url('admin/settings/edit') ?>" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="id_settings" value="<?php echo $settings->id_settings ?>" />
+                                <form action="<?php base_url('admin/contact/edit') ?>" method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="id_contact" value="<?php echo $contact->id_contact ?>" />
                                     <div class="form-group">
-                                        <label for="judul_banner">Judul Banner</label>
-                                        <input class="form-control <?php echo form_error('judul_banner') ? 'is-invalid' : '' ?>" type="text" name="judul_banner" placeholder="" value="<?php echo $settings->judul_banner ?>" />
+                                        <label for="alamat_short">Alamat</label>
+                                        <input class="form-control <?php echo form_error('alamat_short') ? 'is-invalid' : '' ?>" type="text" name="alamat_short" placeholder="" value="<?php echo $contact->alamat_short ?>" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('judul_banner') ?>
+                                            <?php echo form_error('alamat_short') ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="judul_web">Judul Web</label>
-                                        <input class="form-control <?php echo form_error('judul_web') ? 'is-invalid' : '' ?>" type="text" name="judul_web" placeholder="" value="<?php echo $settings->judul_web ?>" />
+                                        <label for="alamat_long">Alamat Lengkap</label>
+                                        <input class="form-control <?php echo form_error('alamat_long') ? 'is-invalid' : '' ?>" type="text" name="alamat_long" placeholder="" value="<?php echo $contact->alamat_long ?>" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('judul_banner') ?>
+                                            <?php echo form_error('alamat_long') ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="about_us">About Us</label>
-                                        <!-- <input class="form-control <?php echo form_error('about_us') ? 'is-invalid' : '' ?>" type="textarea" name="about_us" placeholder="" value="<?php echo $settings->about_us ?>" /> -->
-                                        <textarea class="form-control" <?php echo form_error('about_us') ? 'is-invalid' : '' ?> rows="3" name="about_us"><?php echo $settings->about_us ?></textarea>
+                                        <label for="no_tlp">Nomor Telepon</label>
+                                        <input class="form-control <?php echo form_error('no_tlp') ? 'is-invalid' : '' ?>" type="text" name="no_tlp" placeholder="" value="<?php echo $contact->no_tlp ?>" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('about_us') ?>
+                                            <?php echo form_error('no_tlp') ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="footer">Footer</label>
-                                        <input class="form-control <?php echo form_error('footer') ? 'is-invalid' : '' ?>" type="text" name="footer" placeholder="" value="<?php echo $settings->footer ?>" />
+                                        <label for="email">Email</label>
+                                        <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="email" name="email" placeholder="" value="<?php echo $contact->email ?>" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('judul_banner') ?>
+                                            <?php echo form_error('email') ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="twitter">Twitter</label>
+                                        <input class="form-control <?php echo form_error('twitter') ? 'is-invalid' : '' ?>" type="url" name="twitter" placeholder="" value="<?php echo $contact->twitter ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('email') ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="fb">Facebook</label>
+                                        <input class="form-control <?php echo form_error('fb') ? 'is-invalid' : '' ?>" type="url" name="fb" placeholder="" value="<?php echo $contact->fb ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('fb') ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="instagram">Instagram</label>
+                                        <input class="form-control <?php echo form_error('instagram') ? 'is-invalid' : '' ?>" type="url" name="instagram" placeholder="" value="<?php echo $contact->instagram ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('instagram') ?>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="form-group">
                                         <label for="image_banner">Image Banner</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input <?php echo form_error('image_banner') ? 'is-invalid' : '' ?>" id="customFile" name="image_banner">
@@ -105,7 +128,7 @@
                                         <div class="invalid-feedback">
                                             <?php echo form_error('image') ?>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <input class="btn btn-success" type="submit" name="btn" value="Save" />
                                 </form>
@@ -124,7 +147,7 @@
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
-                <?php $this->load->view('admin/_partials/footer_settings') ?>
+                <?php $this->load->view('admin/_partials/footer') ?>
                 <!-- End of Footer -->
 
             </div>

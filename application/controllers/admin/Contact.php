@@ -9,6 +9,7 @@ class Contact extends CI_Controller
         parent::__construct();
         //load model
         $this->load->model("admin/contact_model");
+        $this->load->model("admin/settings_model");
         $this->load->model("login_model");
         $this->load->library('form_validation');
     }
@@ -17,26 +18,37 @@ class Contact extends CI_Controller
     {
         //cek session
         if ($this->login_model->logged_id()) {
-            $data["contact"] = $this->contact_model->getAll();
-            $this->load->view("admin/list_contact", $data);
+            $contact = $this->contact_model;
+            $validation = $this->form_validation;
+            $validation->set_rules($contact->rules());
+
+            if ($validation->run()) {
+                $contact->update();
+                $this->session->set_flashdata('success', 'Berhasil disimpan');
+            }
+            $data["settings"] = $this->settings_model->getAll();
+            $data["contact"] = $contact->getByID(1);
+            if (!$data["contact"]) show_404();
+
+            $this->load->view("admin/contact_edit", $data);
         } else {
             //jika tidak ada session maka redirect ke halaman login
             redirect("login");
         }
     }
 
-    public function add()
-    {
-        $contact = $this->contact_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($contact->rules());
-        if ($validation->run()) {
-            $contact->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
+    // public function add()
+    // {
+    //     $contact = $this->contact_model;
+    //     $validation = $this->form_validation;
+    //     $validation->set_rules($contact->rules());
+    //     if ($validation->run()) {
+    //         $contact->save();
+    //         $this->session->set_flashdata('success', 'Berhasil disimpan');
+    //     }
 
-        $this->load->view("admin/kategori_add");
-    }
+    //     $this->load->view("admin/kategori_add");
+    // }
 
     public function edit($id = null)
     {

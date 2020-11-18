@@ -1,7 +1,8 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Harilab Production</title>
+  <?php foreach ($settings as $s) :?>
+  <title><?= $s->judul_web; ?></title>
+  <?php endforeach;?>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
