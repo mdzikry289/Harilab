@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2020 at 05:15 PM
+-- Generation Time: Nov 18, 2020 at 10:33 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -49,6 +49,30 @@ INSERT INTO `tb_client` (`id_client`, `nama_client`, `image_client`) VALUES
 (9, 'Neal Band', 'default.jpg'),
 (13, 'Aris & Putri', 'Aris_Putri.jpg'),
 (15, 'Dygta', 'default.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_contact`
+--
+
+CREATE TABLE `tb_contact` (
+  `id_contact` int(11) NOT NULL,
+  `alamat_short` varchar(50) NOT NULL,
+  `alamat_long` varchar(175) NOT NULL,
+  `no_tlp` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `twitter` varchar(50) NOT NULL,
+  `fb` varchar(75) NOT NULL,
+  `instagram` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_contact`
+--
+
+INSERT INTO `tb_contact` (`id_contact`, `alamat_short`, `alamat_long`, `no_tlp`, `email`, `twitter`, `fb`, `instagram`) VALUES
+(1, 'Cihanjuang, Komp. Puri Budi Asri No. K5', 'JL. Cihanjuang Komp. Puri Budi Asri No K5, Cihanjuang, Kec. Parongpong Kabupaten Bandung Barat, Jawa Barat 40559 Indonesia', '+6282116785996', 'info@harilabproduction.com', 'https://twitter.com/HariLabMusic', 'https://www.facebook.com/HariLab-433332287400953/', 'https://www.instagram.com/harilab/?hl=en');
 
 -- --------------------------------------------------------
 
@@ -135,6 +159,28 @@ INSERT INTO `tb_proyek` (`id_proyek`, `id_client`, `id_anggota`, `id_kategori`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_settings`
+--
+
+CREATE TABLE `tb_settings` (
+  `id_settings` int(11) NOT NULL,
+  `judul_banner` varchar(50) NOT NULL,
+  `judul_web` varchar(50) NOT NULL,
+  `about_us` text NOT NULL,
+  `footer` varchar(75) NOT NULL,
+  `image_banner` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_settings`
+--
+
+INSERT INTO `tb_settings` (`id_settings`, `judul_banner`, `judul_web`, `about_us`, `footer`, `image_banner`) VALUES
+(1, 'HARILAB PRODUCTION', 'Harilab Production', 'Harilab Production is a leading, high performance, innovative media creation enterprise based in Bandung. We believe in providing a positive impact, creatively driven solutions in film, videography, multimedia, photography, social media, website development, and event management for our clients.', 'Copyright 2006 - 2020 © <b>Harilab Production</b>. All Rights Reserved', 'default.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_team`
 --
 
@@ -186,7 +232,7 @@ CREATE TABLE `tb_users` (
 --
 
 INSERT INTO `tb_users` (`id_user`, `nama_user`, `username`, `password`, `level`, `image_users`) VALUES
-(1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'SuperAdmin', 'default.jpg'),
+(1, 'SuperAdmin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'SuperAdmin', 'default.jpg'),
 (2, 'Direktur Harilab', 'direktur', '4fbfd324f5ffcdff5dbf6f019b02eca8', 'Admin', 'default.jpg'),
 (3, 'Staff Harilab', 'staff', '1253208465b1efa876f982d8a9e73eef', 'Staff', 'default.jpg');
 
@@ -199,6 +245,12 @@ INSERT INTO `tb_users` (`id_user`, `nama_user`, `username`, `password`, `level`,
 --
 ALTER TABLE `tb_client`
   ADD PRIMARY KEY (`id_client`);
+
+--
+-- Indexes for table `tb_contact`
+--
+ALTER TABLE `tb_contact`
+  ADD PRIMARY KEY (`id_contact`);
 
 --
 -- Indexes for table `tb_jabatan`
@@ -222,6 +274,12 @@ ALTER TABLE `tb_proyek`
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
+-- Indexes for table `tb_settings`
+--
+ALTER TABLE `tb_settings`
+  ADD PRIMARY KEY (`id_settings`);
+
+--
 -- Indexes for table `tb_team`
 --
 ALTER TABLE `tb_team`
@@ -243,7 +301,13 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_client`
 --
 ALTER TABLE `tb_client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tb_contact`
+--
+ALTER TABLE `tb_contact`
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`
@@ -261,7 +325,13 @@ ALTER TABLE `tb_kategori`
 -- AUTO_INCREMENT for table `tb_proyek`
 --
 ALTER TABLE `tb_proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `tb_settings`
+--
+ALTER TABLE `tb_settings`
+  MODIFY `id_settings` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_team`
