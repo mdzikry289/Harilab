@@ -64,6 +64,7 @@ class Team_model extends CI_Model
         $post = $this->input->post();
         $this->nama_anggota = $post["nama_anggota"];
         $this->id_jabatan = $post["id_jabatan"];
+        $this->id_user = $post["id_user"];
         if (!empty($post["instagram"])) {
             $this->instagram = $post["instagram"];
         } else {

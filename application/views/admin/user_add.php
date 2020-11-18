@@ -88,7 +88,7 @@
 
                                     <div class="form-group">
                                         <label for="level">Level</label>
-                                        <select class="form-control <?php echo form_error('level') ? 'is-invalid' : '' ?>" name="level" placeholder="">
+                                        <select class="form-control <?php echo form_error('level') ? 'is-invalid' : '' ?>" name="id_user" placeholder="">
                                             <option value="Admin">Admin</option>
                                             <option value="Staff">Staff</option>
                                         </select>

@@ -35,8 +35,8 @@ class Users extends CI_Controller
             $user->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
-        $this->load->view("admin/user_add");
+        $data["settings"] = $this->settings_model->getAll();
+        $this->load->view("admin/user_add", $data);
     }
 
     public function edit($id_user = null)
@@ -53,6 +53,7 @@ class Users extends CI_Controller
         }
 
         $data["user"] = $user->getById($id_user);
+        $data["settings"] = $this->settings_model->getAll();
         if (!$data["user"]) show_404();
 
         $this->load->view("admin/user_edit", $data);
