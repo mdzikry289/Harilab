@@ -257,16 +257,15 @@
             </ul>
           </div> -->
 
-          <!-- <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#about">About us</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#projects">Projects</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="<?= base_url('index.php/login') ?>">Site Login</a></li>
             </ul>
-          </div> -->
+          </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
