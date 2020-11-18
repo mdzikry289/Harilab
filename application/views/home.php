@@ -58,7 +58,7 @@
           <!-- <?php foreach ($kategori as $k) { ?> -->
             <div class="col-lg-3 col-md-4 col-xs-6">
               <div class="client-logo">
-                <img src="<?= base_url() ?>/uploads/client_img/<?= $k->image_kategori; ?>" class="img-fluid" alt="">
+                <img src="<?= base_url() ?>/uploads/kategori_img/thumbs/<?= $k->image_kategori; ?>" class="img-fluid" alt="">
               </div>
             </div>
           <!-- <?php } ?> -->

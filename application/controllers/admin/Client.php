@@ -35,8 +35,9 @@ class Client extends CI_Controller {
             $client->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
-        $this->load->view("admin/client_add");
+        
+        $data["settings"] = $this->settings_model->getAll();
+        $this->load->view("admin/client_add", $data);
     }
 
     public function edit($id_client = null)
@@ -53,6 +54,7 @@ class Client extends CI_Controller {
         }
 
         $data["client"] = $client->getById($id_client);
+        $data["settings"] = $this->settings_model->getAll();
         if (!$data["client"]) show_404();
         
         $this->load->view("admin/client_edit", $data);

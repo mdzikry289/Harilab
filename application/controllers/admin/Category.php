@@ -36,8 +36,8 @@ class Category extends CI_Controller
             $cat->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
-        $this->load->view("admin/kategori_add");
+        $data["settings"] = $this->settings_model->getAll();
+        $this->load->view("admin/kategori_add", $data);
     }
 
     public function edit($id = null)
@@ -53,6 +53,7 @@ class Category extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
+        $data["settings"] = $this->settings_model->getAll();
         $data["kategori"] = $kategori->getById($id);
         if (!$data["kategori"]) show_404();
 

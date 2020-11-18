@@ -41,6 +41,7 @@ class Team extends CI_Controller {
         $data["team"] = $team->getAll();
         $data["jabatan"] = $jabatan->getAll();
         $data["user"] = $user->getAll();
+        $data["settings"] = $this->settings_model->getAll();
         $this->load->view("admin/team_add", $data);
     }
 
@@ -62,6 +63,7 @@ class Team extends CI_Controller {
         $data["team"] = $team->getById($id_team);
         $data["jabatan"] = $jabatan->getAll();
         $data["user"] = $user->getAll();
+        $data["settings"] = $this->settings_model->getAll();
         if (!$data["team"]) show_404();
         
         $this->load->view("admin/team_edit", $data);

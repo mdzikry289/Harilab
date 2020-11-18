@@ -43,6 +43,7 @@ class Proyek extends CI_Controller
         }
 
         $data["kategori"] = $this->category_model->getAll();
+        $data["settings"] = $this->settings_model->getAll();
         $data["client"] = $client->getAll();
         $data["team"] = $team->getByJoin();
         $this->load->view("admin/proyek_add", $data);
@@ -68,6 +69,7 @@ class Proyek extends CI_Controller
         $data["kategori"] = $kategori->getAll();
         $data["client"] = $client->getAll();
         $data["team"] = $team->getAll();
+        $data["settings"] = $this->settings_model->getAll();
         if (!$data["proyek"]) show_404();
 
         $this->load->view("admin/proyek_edit", $data);

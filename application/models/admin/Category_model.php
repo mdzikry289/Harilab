@@ -77,8 +77,8 @@ class Category_model extends CI_Model
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '75%';
-                $config['width']= 600;
-                $config['height']= 480;
+                $config['width']= 200;
+                $config['height']= 200;
                 $config['new_image']= './uploads/kategori_img/thumbs/'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
