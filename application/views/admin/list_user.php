@@ -62,7 +62,7 @@
                                         <tr>
                                             <th>Nama User</th>
                                             <th>Username</th>
-                                            <th>Password</th>
+                                            <!-- <th>Password</th> -->
                                             <th>Level</th>
                                             <th>Foto</th>
                                             <th>Aksi</th>
@@ -77,9 +77,9 @@
                                                 <td>
                                                     <?php echo $u->username ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <?php echo $u->password ?>
-                                                </td>
+                                                </td> -->
                                                 <td>
                                                     <?php echo $u->level ?>
                                                 </td>
