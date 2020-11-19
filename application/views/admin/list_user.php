@@ -51,6 +51,9 @@
                     <!-- <p class="mb-4">Input data na bari ngopi euyy ngeunahh segerr</a>.</p> -->
 
                     <!-- DataTales Example -->
+                    <?php if ($this->session->userdata("user_nama") != ('SuperAdmin') ) : ?>
+                        <?= "Anda tidak dapat mengakses halaman ini" ?>
+                        <? else : ?>
                     <div class="card shadow mb-4">
                         <div class="card-header">
                             <a href="<?php echo site_url('admin/users/add') ?>"><i class="fas fa-plus"></i> Tambah Data User</a>
@@ -106,8 +109,9 @@
 
                 </div>
                 <!-- /.container-fluid -->
-
+                <?php endif; ?> 
             </div>
+                                                    
             <!-- End of Main Content -->
 
             <!-- Footer -->

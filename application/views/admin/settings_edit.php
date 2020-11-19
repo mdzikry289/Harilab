@@ -54,6 +54,9 @@
                         <!-- Page Heading -->
                         <h1 class="h3 mb-2 text-gray-800">Settings</h1>
 
+                        <?php if ($this->session->userdata("user_nama") != ('SuperAdmin') ) : ?>
+                        <?= "Anda tidak dapat mengakses halaman ini" ?>
+                        <? else : ?>
                         <!-- DataTales -->
                         <div class="card shadow mb-4">
                             <!-- <div class="card-header">
@@ -119,7 +122,7 @@
 
                     </div>
                     <!-- /.container-fluid -->
-
+                        <?php endif;?>
                 </div>
                 <!-- End of Main Content -->
 

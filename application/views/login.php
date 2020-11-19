@@ -44,7 +44,7 @@
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" name="btn-login" id="btn-login" type="submit">
                     Login</button>
-                    <hr>
+                    <!-- <hr> -->
                     <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
                     </a>
@@ -53,12 +53,12 @@
                     </a> -->
                   </form>
                   <!-- <hr> -->
-                  <div class="text-center">
+                  <!-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
                   <div class="text-center">
                     <a class="small" href="register.html">Create an Account!</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

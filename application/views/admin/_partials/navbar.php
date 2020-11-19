@@ -160,7 +160,7 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a> -->
-                <a class="dropdown-item" href="<?php echo base_url('index.php')?>">
+                <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="<?php echo base_url('/')?>">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>  
                   Kembali ke Homepage
                 </a>
